@@ -690,6 +690,26 @@
             line-height: 1.55;
         }
 
+        .document-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 32px;
+            margin-top: 14px;
+            padding: 7px 10px;
+            border: 1px solid rgba(208, 138, 29, 0.42);
+            background: #ffffff;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .document-link:hover {
+            text-decoration: none;
+            border-color: var(--gold);
+            color: var(--blue);
+        }
+
         .documentation-list {
             display: grid;
             gap: 7px;
@@ -2205,6 +2225,7 @@
                     <p>
                         Les travaux sont accompagnés de captures, procédures de validation, comptes rendus, dossiers professionnels TSSR/AIS et capitalisation dans un Wiki.js.
                     </p>
+                    <a class="document-link" href="assets/docs/dossier-professionnel-ais-jean-marie-cardoso.pdf" target="_blank" rel="noopener noreferrer">Consulter le dossier professionnel AIS</a>
                 </div>
                 <ul class="documentation-list">
                     <li>Dossier professionnel TSSR : administration systèmes, support, réseau et exploitation.</li>
