@@ -144,6 +144,73 @@
             overflow-wrap: anywhere;
         }
 
+        .linkedin-profile {
+            display: grid;
+            gap: 8px;
+        }
+
+        .linkedin-profile .LI-profile-badge > .LI-simple-link {
+            display: none;
+        }
+
+        .linkedin-profile .LI-profile-badge iframe {
+            max-width: 100%;
+        }
+
+        .linkedin-profile.is-linkedin-rendered .linkedin-badge-fallback {
+            display: none;
+        }
+
+        .linkedin-badge-fallback {
+            display: grid;
+            gap: 5px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.09);
+            color: #ffffff;
+        }
+
+        .linkedin-badge-fallback:hover {
+            border-color: rgba(159, 215, 222, 0.75);
+            background: rgba(255, 255, 255, 0.13);
+            text-decoration: none;
+        }
+
+        .linkedin-badge-kicker {
+            color: #9fd7de;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .linkedin-badge-name {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .linkedin-badge-icon {
+            display: inline-grid;
+            place-items: center;
+            width: 22px;
+            height: 22px;
+            background: #0a66c2;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .linkedin-badge-action {
+            color: #c8dce6;
+            font-size: 11px;
+            line-height: 1.3;
+        }
+
         .qr-card {
             display: grid;
             grid-template-columns: 86px 1fr;
@@ -1885,8 +1952,13 @@
                         <span class="contact-value"><a href="https://linkedin.com/in/jmtc26780" target="_blank" rel="noopener noreferrer">linkedin.com/in/jmtc26780</a></span>
                     </div>
                     <!-- Badge LinkedIn inséré pour la version web uniquement -->
-                    <div class="web-only">
+                    <div class="web-only linkedin-profile" data-linkedin-profile>
                         <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="jmtc26780" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/jmtc26780?trk=profile-badge">Jean-Marie Cardoso</a></div>
+                        <a class="linkedin-badge-fallback" href="https://fr.linkedin.com/in/jmtc26780?trk=profile-badge" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le profil LinkedIn de Jean-Marie Cardoso">
+                            <span class="linkedin-badge-kicker">Profil LinkedIn</span>
+                            <span class="linkedin-badge-name"><span class="linkedin-badge-icon" aria-hidden="true">in</span>Jean-Marie Cardoso</span>
+                            <span class="linkedin-badge-action">Voir le profil public</span>
+                        </a>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">Permis</span>
@@ -2362,5 +2434,32 @@
     </section>
     <!-- LinkedIn badge script loaded once for the web view -->
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script>
+        (function () {
+            function initLinkedInFallback() {
+                var wrapper = document.querySelector("[data-linkedin-profile]");
+
+                if (!wrapper) {
+                    return;
+                }
+
+                function syncLinkedInState() {
+                    var rendered = Boolean(wrapper.querySelector(".LI-profile-badge iframe"));
+                    wrapper.classList.toggle("is-linkedin-rendered", rendered);
+                }
+
+                syncLinkedInState();
+                new MutationObserver(syncLinkedInState).observe(wrapper, { childList: true, subtree: true });
+                window.setTimeout(syncLinkedInState, 1200);
+                window.setTimeout(syncLinkedInState, 3500);
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initLinkedInFallback);
+            } else {
+                initLinkedInFallback();
+            }
+        })();
+    </script>
     </body>
 </html>
