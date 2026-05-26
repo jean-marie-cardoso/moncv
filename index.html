@@ -2445,13 +2445,48 @@
                 }
 
                 function syncLinkedInState() {
-                    var rendered = Boolean(wrapper.querySelector(".LI-profile-badge iframe"));
+                    var iframe = wrapper.querySelector(".LI-profile-badge iframe");
+                    var rendered = Boolean(iframe);
                     wrapper.classList.toggle("is-linkedin-rendered", rendered);
+
+                    if (iframe) {
+                        neutralizeLinkedInNameLink(iframe);
+                    }
+                }
+
+                function neutralizeLinkedInNameLink(iframe) {
+                    try {
+                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+                        if (!iframeDocument) {
+                            return;
+                        }
+
+                        Array.prototype.forEach.call(iframeDocument.querySelectorAll("a"), function (link) {
+                            var label = link.textContent.replace(/\s+/g, " ").trim();
+
+                            if (label.indexOf("Jean-Marie Cardoso") !== -1 && label.indexOf("Voir le profil") === -1) {
+                                link.removeAttribute("href");
+                                link.removeAttribute("target");
+                                link.setAttribute("aria-disabled", "true");
+                                link.style.cursor = "default";
+                                link.style.textDecoration = "none";
+                                link.addEventListener("click", function (event) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }, true);
+                            }
+                        });
+                    } catch (error) {
+                        return;
+                    }
                 }
 
                 syncLinkedInState();
                 new MutationObserver(syncLinkedInState).observe(wrapper, { childList: true, subtree: true });
+                window.setTimeout(syncLinkedInState, 300);
                 window.setTimeout(syncLinkedInState, 1200);
+                window.setTimeout(syncLinkedInState, 2200);
                 window.setTimeout(syncLinkedInState, 3500);
             }
 
