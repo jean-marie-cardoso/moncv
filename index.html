@@ -149,19 +149,7 @@
             gap: 8px;
         }
 
-        .linkedin-profile .LI-profile-badge > .LI-simple-link {
-            display: none;
-        }
-
-        .linkedin-profile .LI-profile-badge iframe {
-            max-width: 100%;
-        }
-
-        .linkedin-profile.is-linkedin-rendered .linkedin-badge-fallback {
-            display: none;
-        }
-
-        .linkedin-badge-fallback {
+        .linkedin-badge-card {
             display: grid;
             gap: 5px;
             padding: 12px;
@@ -1953,9 +1941,8 @@
                         <span class="contact-value"><a href="https://linkedin.com/in/jmtc26780" target="_blank" rel="noopener noreferrer">linkedin.com/in/jmtc26780</a></span>
                     </div>
                     <!-- Badge LinkedIn inséré pour la version web uniquement -->
-                    <div class="web-only linkedin-profile" data-linkedin-profile>
-                        <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="jmtc26780" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/jmtc26780?trk=profile-badge">Profil Linkedin</a></div>
-                        <div class="linkedin-badge-fallback">
+                    <div class="web-only linkedin-profile">
+                        <div class="linkedin-badge-card">
                             <span class="linkedin-badge-kicker">Profil LinkedIn</span>
                             <span class="linkedin-badge-name"><span class="linkedin-badge-icon" aria-hidden="true">in</span>Jean-Marie Cardoso</span>
                             <a class="linkedin-badge-action" href="https://fr.linkedin.com/in/jmtc26780?trk=profile-badge" target="_blank" rel="noopener noreferrer">Voir le profil public</a>
@@ -2433,69 +2420,5 @@
             </section>
         </div>
     </section>
-    <!-- LinkedIn badge script loaded once for the web view -->
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-    <script>
-        (function () {
-            function initLinkedInFallback() {
-                var wrapper = document.querySelector("[data-linkedin-profile]");
-
-                if (!wrapper) {
-                    return;
-                }
-
-                function syncLinkedInState() {
-                    var iframe = wrapper.querySelector(".LI-profile-badge iframe");
-                    var rendered = Boolean(iframe);
-                    wrapper.classList.toggle("is-linkedin-rendered", rendered);
-
-                    if (iframe) {
-                        neutralizeLinkedInNameLink(iframe);
-                    }
-                }
-
-                function neutralizeLinkedInNameLink(iframe) {
-                    try {
-                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-
-                        if (!iframeDocument) {
-                            return;
-                        }
-
-                        Array.prototype.forEach.call(iframeDocument.querySelectorAll("a"), function (link) {
-                            var label = link.textContent.replace(/\s+/g, " ").trim();
-
-                            if (label.indexOf("Jean-Marie Cardoso") !== -1 && label.indexOf("Voir le profil") === -1) {
-                                link.removeAttribute("href");
-                                link.removeAttribute("target");
-                                link.setAttribute("aria-disabled", "true");
-                                link.style.cursor = "default";
-                                link.style.textDecoration = "none";
-                                link.addEventListener("click", function (event) {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                }, true);
-                            }
-                        });
-                    } catch (error) {
-                        return;
-                    }
-                }
-
-                syncLinkedInState();
-                new MutationObserver(syncLinkedInState).observe(wrapper, { childList: true, subtree: true });
-                window.setTimeout(syncLinkedInState, 300);
-                window.setTimeout(syncLinkedInState, 1200);
-                window.setTimeout(syncLinkedInState, 2200);
-                window.setTimeout(syncLinkedInState, 3500);
-            }
-
-            if (document.readyState === "loading") {
-                document.addEventListener("DOMContentLoaded", initLinkedInFallback);
-            } else {
-                initLinkedInFallback();
-            }
-        })();
-    </script>
     </body>
 </html>
