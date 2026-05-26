@@ -754,6 +754,10 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        /* Elements with this class are hidden in the web view and displayed only when printing */
+        .print-only {
+            display: none;
+        }
 
         .document-badge {
             display: inline-grid;
@@ -1005,6 +1009,11 @@
 
             .web-only {
                 display: none !important;
+            }
+
+            /* Show elements with print-only class when printing */
+            .print-only {
+                display: block !important;
             }
 
             .strengths-section {
@@ -1871,9 +1880,14 @@
                         <span class="contact-label">Email</span>
                         <span class="contact-value"><a href="mailto:cardosojm@me.com">cardosojm@me.com</a></span>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item print-only">
                         <span class="contact-label">LinkedIn</span>
                         <span class="contact-value"><a href="https://linkedin.com/in/jmtc26780" target="_blank" rel="noopener noreferrer">linkedin.com/in/jmtc26780</a></span>
+                    </div>
+                    <!-- Badge LinkedIn inséré pour la version web uniquement -->
+                    <div class="web-only">
+                        <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="jmtc26780" data-version="v1">
+                        </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">Permis</span>
@@ -1949,6 +1963,7 @@
                     </li>
                 </ul>
             </section>
+        <!-- Section badge LinkedIn déplacée dans la liste de contact -->
         </aside>
 
         <main class="main">
@@ -2346,5 +2361,7 @@
             </section>
         </div>
     </section>
-</body>
+    <!-- LinkedIn badge script loaded once for the web view -->
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    </body>
 </html>
