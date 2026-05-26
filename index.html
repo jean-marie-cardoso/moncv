@@ -725,7 +725,7 @@
         /* Link/button used to download the CV as a PDF. It stands out near the top of the page. */
         .download-link {
             display: inline-block;
-            margin-top: 10px;
+            margin: 0;
             padding: 8px 12px;
             border: 1px solid var(--teal);
             background: var(--teal);
@@ -736,6 +736,7 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.6px;
+            white-space: nowrap;
         }
 
         .download-link:hover {
@@ -743,6 +744,15 @@
             background: var(--blue);
             border-color: var(--blue);
             color: #ffffff;
+        }
+
+        /* Container for multiple action buttons at the top of the resume */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         .document-badge {
@@ -1003,6 +1013,11 @@
 
             /* Hide the download link when printing or generating the PDF */
             .download-link {
+                display: none !important;
+            }
+
+            /* Hide the action button container when printing */
+            .action-buttons {
                 display: none !important;
             }
 
@@ -1937,10 +1952,15 @@
         </aside>
 
         <main class="main">
-            <!-- Download button moved to the top of the main content -->
-            <a class="download-link" href="assets/docs/cv-jean-marie-cardoso.pdf" download>
-                Télécharger le&nbsp;CV&nbsp;PDF
-            </a>
+            <!-- Action buttons at the top of the main content -->
+            <div class="action-buttons">
+                <a class="download-link" href="assets/docs/cv-jean-marie-cardoso.pdf" download>
+                    Télécharger le&nbsp;CV&nbsp;PDF
+                </a>
+                <a class="download-link" href="#portfolio-title">
+                    Voir le&nbsp;portfolio&nbsp;technique
+                </a>
+            </div>
 
             <section class="intro" aria-labelledby="profile-title">
                 <p class="intro-kicker" id="profile-title"></p>
