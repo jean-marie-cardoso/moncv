@@ -702,20 +702,31 @@
         .project-link {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
+            gap: 7px;
             width: fit-content;
-            margin-top: 12px;
-            padding: 8px 10px;
-            border: 1px solid rgba(15, 118, 110, 0.32);
-            background: var(--soft-teal);
-            color: var(--teal);
+            min-height: 36px;
+            margin-top: 14px;
+            padding: 9px 12px;
+            border: 1px solid var(--teal);
+            background: var(--teal);
+            color: #ffffff;
+            box-shadow: 0 8px 18px rgba(16, 42, 67, 0.12);
             font-size: 12px;
             font-weight: 800;
             line-height: 1.2;
         }
 
+        .project-link::after {
+            content: "↗";
+            font-size: 12px;
+            line-height: 1;
+        }
+
         .project-link:hover {
-            border-color: var(--teal);
-            background: #ffffff;
+            border-color: var(--blue);
+            background: var(--blue);
+            color: #ffffff;
             text-decoration: none;
         }
 
@@ -2315,8 +2326,8 @@
                             <li><strong>Solution :</strong> interface métier, 22 modules référencés, calculs hydrauliques, aérauliques, plomberie, thermique et utilitaires.</li>
                             <li><strong>Résultat :</strong> démonstration en ligne reliée à un backend privé et prête à être enrichie module par module.</li>
                         </ul>
-                        <a class="project-link" href="https://jean-marie-cardoso.github.io/note-de-calcul/" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la démonstration Soft Etudes JM">
-                            Voir la démo
+                        <a class="project-link" href="https://jean-marie-cardoso.github.io/note-de-calcul/" target="_blank" rel="noopener noreferrer" aria-label="Tester la démonstration en ligne Soft Etudes JM">
+                            Tester la démo en ligne
                         </a>
                     </div>
                 </article>
