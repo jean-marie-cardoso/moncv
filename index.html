@@ -171,6 +171,11 @@
             font-weight: 900;
         }
 
+        .github-badge-icon {
+            background: #24292f;
+            font-size: 10px;
+        }
+
         .linkedin-badge-action {
             width: fit-content;
             color: #c8dce6;
@@ -692,6 +697,26 @@
             font-size: 11px;
             font-weight: 800;
             line-height: 1.1;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            margin-top: 12px;
+            padding: 8px 10px;
+            border: 1px solid rgba(15, 118, 110, 0.32);
+            background: var(--soft-teal);
+            color: var(--teal);
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .project-link:hover {
+            border-color: var(--teal);
+            background: #ffffff;
+            text-decoration: none;
         }
 
         .project-label {
@@ -1924,11 +1949,19 @@
                         <span class="contact-label">LinkedIn</span>
                         <span class="contact-value"><a href="https://linkedin.com/in/jmtc26780" target="_blank" rel="noopener noreferrer">linkedin.com/in/jmtc26780</a></span>
                     </div>
+                    <div class="contact-item print-only">
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value"><a href="https://github.com/jean-marie-cardoso" target="_blank" rel="noopener noreferrer">github.com/jean-marie-cardoso</a></span>
+                    </div>
                     <!-- Badge LinkedIn inséré pour la version web uniquement -->
                     <div class="web-only linkedin-profile">
                         <div class="linkedin-badge-card">
                             <span class="linkedin-badge-icon" aria-hidden="true">in</span>
-                            <a class="linkedin-badge-action" href="https://fr.linkedin.com/in/jmtc26780?trk=profile-badge" target="_blank" rel="noopener noreferrer">Voir le profil public</a>
+                            <a class="linkedin-badge-action" href="https://fr.linkedin.com/in/jmtc26780?trk=profile-badge" target="_blank" rel="noopener noreferrer">Voir le profil Linkedin</a>
+                        </div>
+                        <div class="linkedin-badge-card">
+                            <span class="linkedin-badge-icon github-badge-icon" aria-hidden="true">GH</span>
+                            <a class="linkedin-badge-action" href="https://github.com/jean-marie-cardoso" target="_blank" rel="noopener noreferrer">Voir le profil GitHub</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -2243,7 +2276,7 @@
                 <aside class="lab-proof" aria-label="Points de preuve">
                     <div class="proof-stat">
                         <strong>Projets</strong>
-                        <span>6 projets documentés avec captures et procédures.</span>
+                        <span>7 projets documentés avec captures et procédures.</span>
                     </div>
                     <div class="proof-stat">
                         <strong>Infra + sécurité</strong>
@@ -2263,6 +2296,31 @@
             </section>
 
             <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <img src="assets/portfolio/soft-etudes-note-calcul.jpg?v=20260529" alt="Interface Soft Etudes JM avec catalogue de modules et calculateur métier">
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Application métier / notes de calcul</p>
+                        <h3>Soft Etudes JM, outil web de calculs techniques</h3>
+                        <p>
+                            Projet personnel de migration de feuilles Excel métier vers une application web de prédimensionnement, avec catalogue par domaine, recherche, formulaires de calcul et synthèse exportable.
+                        </p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Node.js API</span>
+                            <span>DTU / normes</span>
+                            <span>Préproduction</span>
+                        </div>
+                        <ul class="proof-list">
+                            <li><strong>Objectif :</strong> rendre des notes de calcul plus rapides, centralisées et réutilisables.</li>
+                            <li><strong>Solution :</strong> interface métier, 22 modules référencés, calculs hydrauliques, aérauliques, plomberie, thermique et utilitaires.</li>
+                            <li><strong>Résultat :</strong> démonstration en ligne reliée à un backend privé et prête à être enrichie module par module.</li>
+                        </ul>
+                        <a class="project-link" href="https://jean-marie-cardoso.github.io/note-de-calcul/" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la démonstration Soft Etudes JM">
+                            Voir la démo
+                        </a>
+                    </div>
+                </article>
+
                 <article class="portfolio-card">
                     <img src="assets/portfolio/rds-active-directory.jpg?v=20260525" alt="Vue d'ensemble d'un déploiement RDS Windows Server dans le laboratoire">
                     <div class="portfolio-card-body">
