@@ -2010,8 +2010,8 @@
                     <span class="tag">Gestion de parc GLPI</span>
                     <span class="tag">Supervision Zabbix</span>
                     <span class="tag">Support N1/N2</span>
-                    <span class="tag">Wiki.js</span>
-                    <span class="tag">Node.js / Express</span>
+                    <span class="tag">Administration VPS</span>
+                    <span class="tag">UFW / Fail2ban</span>
                     <span class="tag">Nginx / systemd</span>
                 </div>
             </section>
@@ -2073,7 +2073,7 @@
                 <p class="intro-kicker">Profil</p>
                 <h2 class="headline" id="profile-title">Administrateur systèmes et réseaux junior</h2>
                 <p class="summary">
-                    Diplômé TSSR et en formation AIS, avec une expérience pratique en infrastructure, support et sécurité : Windows Server 2022, Active Directory, virtualisation, pfSense, VPN, GLPI et Zabbix. Je développe aussi <a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, une application web métier qui me sert de terrain concret pour administrer serveur local, VPS, ports, SSH, reverse proxy, services et supervision d'usage.
+                    Diplômé TSSR et en formation AIS, avec une expérience pratique en infrastructure, support et sécurité : Windows Server 2022, Active Directory, virtualisation, pfSense, VPN, GLPI et Zabbix. Je développe et administre également <a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, application web métier déployée sur VPS Debian, avec exploitation Nginx, systemd, sauvegardes et durcissement SSH/pare-feu.
                 </p>
 
                 <div class="impact-grid" aria-label="Points forts">
@@ -2086,8 +2086,8 @@
                         <span>VLAN, switching, routage, pare-feu, pfSense, VPN OpenVPN, segmentation et durcissement.</span>
                     </div>
                     <div class="impact-card">
-                        <strong>Exploitation &amp; projets web</strong>
-                        <span>Supervision Zabbix, GLPI, Node.js/Express, Nginx, systemd, procédures, reporting et gestion d'incidents.</span>
+                        <strong>Exploitation VPS &amp; projets web</strong>
+                        <span>VPS Debian, Nginx, systemd, pare-feu, sauvegardes, procédures et suivi d'exploitation.</span>
                     </div>
                 </div>
             </section>
@@ -2103,11 +2103,10 @@
                         <div class="job-company"><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, projet personnel déployé sur VPS</div>
                         <div class="job-description">
                             <ul>
-                                <li>Administration d'un environnement local de test : API Node.js sur port 3000, service frontend optionnel, variables d'environnement, contrôle des ports et validation par requêtes HTTP.</li>
-                                <li>Déploiement VPS via SSH et rsync, avec séparation des chemins serveur : frontend sous /var/www, backend sous /opt, droits Unix et exécution du service avec compte www-data.</li>
-                                <li>Configuration Nginx : redirection HTTP vers HTTPS, certificats Let's Encrypt, reverse proxy /api/ vers 127.0.0.1:3000 et transmission des en-têtes client.</li>
-                                <li>Mise en service systemd de l'API : port de production, fichier d'environnement, redémarrage automatique, tests curl, contrôle nginx -t et rechargement des services.</li>
-                                <li>Automatisation d'exploitation : tâches cron, scripts de mise à jour, statistiques GoAccess, prix énergie, cache-busting, documentation README et procédures de reprise.</li>
+                                <li>Développement et exploitation d'une application web métier CVC/plomberie, utilisée comme terrain réel d'administration système.</li>
+                                <li>Déploiement sur VPS Debian : Nginx HTTPS, reverse proxy API, service systemd, droits Unix et mises à jour par SSH/rsync.</li>
+                                <li>Sécurisation serveur : SSH par clé sur port dédié, UFW, Fail2ban, désactivation LLMNR, Edge Network Firewall OVH et sauvegardes automatisées.</li>
+                                <li>Automatisation d'exploitation : tâches cron, statistiques GoAccess, scripts serveur, cache-busting, README et procédures de reprise.</li>
                             </ul>
                         </div>
                     </article>
@@ -2213,8 +2212,8 @@
                         <p>Support utilisateurs N1/N2, GLPI, assistance technique, accompagnement au changement, tenue d'un Wiki.js, rédaction de procédures et transmission pédagogique.</p>
                     </div>
                     <div class="skill-category">
-                        <strong>Projet web &amp; exploitation</strong>
-                        <p>Serveur local, ports, SSH, rsync, VPS Linux, Nginx, reverse proxy, HTTPS Let's Encrypt, systemd, cron, Node.js/Express, SMTP serveur, GoAccess et documentation d'exploitation.</p>
+                        <strong>Administration VPS &amp; exploitation web</strong>
+                        <p>VPS Linux/Debian, SSH par clé, UFW, Fail2ban, Nginx HTTPS, reverse proxy, systemd, cron, sauvegardes, supervision d'usage et documentation d'exploitation.</p>
                     </div>
                 </div>
             </section>
@@ -2229,7 +2228,7 @@
                     <div class="job-description">
                         <ul>
                             <li>Plateforme de 25 outils techniques avec backend commun, frontend public, API privée, statistiques, formulaire de retour et rapports PDF.</li>
-                            <li>Infrastructure documentée : environnement local sur port 3000, VPS Linux, accès SSH, rsync, Nginx HTTPS, proxy /api, systemd, cron et tests curl.</li>
+                            <li>Infrastructure administrée sur VPS Debian : Nginx HTTPS, API proxifiée, service systemd, cron, sauvegardes et procédures de reprise.</li>
                         </ul>
                     </div>
                 </article>
@@ -2353,19 +2352,19 @@
                         <p class="project-label">Application métier / notes de calcul</p>
                         <h3><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, outil web de calculs techniques</h3>
                         <p>
-                            Projet personnel de migration de feuilles Excel métier vers une application web CVC/plomberie, exploité avec serveur local, VPS Linux, Nginx HTTPS, proxy API, service systemd, SSH/rsync et supervision d'usage.
+                            Projet personnel de migration de feuilles Excel métier vers une application web CVC/plomberie, exploité en production sur VPS Debian avec Nginx HTTPS, API proxifiée, service systemd, sauvegardes et durcissement serveur.
                         </p>
                         <div class="project-tags">
                             <span>JavaScript</span>
                             <span>Node.js API</span>
                             <span>Nginx / systemd</span>
                             <span>SSH / rsync</span>
-                            <span>Port 3000</span>
+                            <span>UFW / Fail2ban</span>
                             <span>VPS</span>
                         </div>
                         <ul class="proof-list">
                             <li><strong>Objectif :</strong> rendre des notes de calcul plus rapides, centralisées et réutilisables.</li>
-                            <li><strong>Solution :</strong> API Express locale puis proxifiée en production, Nginx, HTTPS, systemd, cron, scripts serveur et 25 modules référencés.</li>
+                            <li><strong>Solution :</strong> API Express locale puis proxifiée en production, Nginx, HTTPS, systemd, cron, scripts serveur, sécurisation VPS et 25 modules référencés.</li>
                             <li><strong>Résultat :</strong> plateforme en ligne, versionnée, administrée à distance et enrichie module par module.</li>
                         </ul>
                         <a class="project-link" href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer" aria-label="Tester la démonstration en ligne softetudes.fr">
