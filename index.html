@@ -53,6 +53,29 @@
             text-decoration: underline;
         }
 
+        a[href*="softetudes.fr"]:not(.project-link) {
+            color: var(--teal);
+            font-weight: 800;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 3px;
+        }
+
+        a[href*="softetudes.fr"]:not(.project-link)::after {
+            content: "↗";
+            display: inline-block;
+            margin-left: 3px;
+            font-size: 0.75em;
+            line-height: 1;
+            text-decoration: none;
+            transform: translateY(-0.05em);
+        }
+
+        a[href*="softetudes.fr"]:not(.project-link):hover {
+            color: var(--blue);
+            text-decoration-thickness: 2px;
+        }
+
         .page {
             width: min(1060px, calc(100% - 32px));
             margin: 24px auto;
@@ -456,20 +479,6 @@
             color: var(--muted);
             font-size: 12px;
             line-height: 1.48;
-        }
-
-        .project-block {
-            padding: 16px 18px;
-            border-left: 4px solid var(--teal);
-            background: var(--soft-blue);
-        }
-
-        .project-block + .project-block {
-            margin-top: 10px;
-        }
-
-        .project-block .job-header {
-            margin-bottom: 3px;
         }
 
         .web-portfolio {
@@ -903,7 +912,6 @@
             .experience-item,
             .impact-card,
             .skill-category,
-            .project-block,
             .web-portfolio,
             .portfolio-shell,
             .portfolio-subhead,
@@ -1106,10 +1114,6 @@
                 display: none !important;
             }
 
-            .section[aria-labelledby="projects-title"] {
-                display: none !important;
-            }
-
             .page {
                 width: 100%;
                 max-width: none;
@@ -1253,8 +1257,7 @@
             }
 
             .impact-card,
-            .skill-category,
-            .project-block {
+            .skill-category {
                 padding: 4px 5px;
             }
 
@@ -1337,13 +1340,6 @@
                 letter-spacing: 0.2px;
             }
 
-            .project-block {
-                border-left-width: 3px;
-            }
-
-            .project-block + .project-block {
-                margin-top: 2px;
-            }
         }
 
         @media print and (max-device-width: 600px),
@@ -1427,8 +1423,7 @@
             }
 
             .impact-card,
-            .skill-category,
-            .project-block {
+            .skill-category {
                 padding: 3px 4px;
             }
 
@@ -1592,8 +1587,7 @@
                 }
 
                 .impact-card,
-                .skill-category,
-                .project-block {
+                .skill-category {
                     padding: 2.5px 3px;
                 }
 
@@ -1637,9 +1631,6 @@
                     padding-left: 7px;
                 }
 
-                .project-block + .project-block {
-                    margin-top: 1px;
-                }
             }
         }
 
@@ -1766,8 +1757,7 @@
                 }
 
                 .impact-card,
-                .skill-category,
-                .project-block {
+                .skill-category {
                     padding: 3px 4px;
                 }
 
@@ -1811,9 +1801,6 @@
                     padding-left: 7px;
                 }
 
-                .project-block + .project-block {
-                    margin-top: 1px;
-                }
             }
         }
 
@@ -1909,8 +1896,7 @@
                 }
 
                 .impact-card,
-                .skill-category,
-                .project-block {
+                .skill-category {
                     padding: 2px 3px;
                 }
 
@@ -2218,46 +2204,6 @@
                 </div>
             </section>
 
-            <section class="section" aria-labelledby="projects-title">
-                <h2 class="section-title" id="projects-title">Projets techniques</h2>
-                <article class="project-block">
-                    <div class="job-header">
-                        <h3 class="job-position"><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a></h3>
-                    </div>
-                    <div class="job-company">Application web métier CVC / plomberie, <a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a></div>
-                    <div class="job-description">
-                        <ul>
-                            <li>Plateforme de 25 outils techniques avec backend commun, frontend public, API privée, statistiques, formulaire de retour et rapports PDF.</li>
-                            <li>Infrastructure administrée sur VPS Debian : Nginx HTTPS, API proxifiée, service systemd, cron, sauvegardes et procédures de reprise.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="project-block">
-                    <div class="job-header">
-                        <h3 class="job-position">Lab personnel d'administration systèmes &amp; réseaux</h3>
-                    </div>
-                    <div class="job-company">Environnement virtualisé Proxmox / VMware</div>
-                    <div class="job-description">
-                        <ul>
-                            <li>Infrastructure virtualisée Proxmox/VMware : Windows Server, AD, VPN, Zabbix, GLPI, pfSense et Wiki.js.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="project-block">
-                    <div class="job-header">
-                        <h3 class="job-position">Missions infrastructure et sécurité chez Autajon</h3>
-                    </div>
-                    <div class="job-company">Stage en entreprise, Montélimar</div>
-                    <div class="job-description">
-                        <ul>
-                            <li>Audit GPO, configurations switch et accès VPN utilisateurs.</li>
-                            <li>Documentation des constats, propositions et actions réalisées.</li>
-                        </ul>
-                    </div>
-                </article>
-            </section>
         </main>
     </article>
 
