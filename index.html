@@ -3,19 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CV de Jean-Marie Cardoso, Administrateur Systèmes & Réseaux Junior : infrastructure, sécurité, support et projet web softetudes.fr.">
-    <title>CV - Jean-Marie Cardoso | Administrateur systèmes et réseaux junior</title>
+    <meta name="description" content="CV de Jean-Marie Cardoso, Administrateur Systèmes et Infrastructures Sécurisées en formation : Active Directory, réseaux, Linux, sécurité, documentation et projet web softetudes.fr.">
+    <title>CV - Jean-Marie Cardoso | Administrateur systèmes et infrastructures sécurisées</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=20260525">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg?v=20260525">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=20260525">
     <meta name="theme-color" content="#102a43">
+    <script>
+        (function () {
+            var savedTheme = "auto";
+            try {
+                savedTheme = localStorage.getItem("cv-theme") || "auto";
+            } catch (error) {
+                savedTheme = "auto";
+            }
+            var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            var resolvedTheme = savedTheme === "auto" ? (prefersDark ? "dark" : "light") : savedTheme;
+            document.documentElement.setAttribute("data-theme-choice", savedTheme);
+            document.documentElement.setAttribute("data-theme", resolvedTheme);
+        })();
+    </script>
     <style>
         :root {
+            color-scheme: light;
             --ink: #17212f;
             --muted: #5c6675;
             --line: #d9e1ea;
+            --line-strong: #b9c7d4;
             --paper: #ffffff;
             --page: #eef3f7;
+            --card: #fbfdff;
+            --card-strong: #ffffff;
+            --field: #ffffff;
             --panel: #102a43;
             --blue: #0f5f7a;
             --teal: #0f766e;
@@ -23,6 +42,40 @@
             --soft-blue: #e8f4f7;
             --soft-teal: #e7f6f3;
             --soft-gold: #fff5df;
+            --shadow: rgba(16, 42, 67, 0.16);
+            --shadow-card: rgba(16, 42, 67, 0.08);
+            --shadow-link: rgba(16, 42, 67, 0.12);
+            --paper-translucent: rgba(255, 255, 255, 0.82);
+            --paper-soft: rgba(255, 255, 255, 0.78);
+            --teal-hover-soft: rgba(15, 118, 110, 0.12);
+            --focus: rgba(208, 138, 29, 0.48);
+        }
+
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+            --ink: #edf4f8;
+            --muted: #b4c2cf;
+            --line: #344858;
+            --line-strong: #527086;
+            --paper: #13212a;
+            --page: #0b141a;
+            --card: #172833;
+            --card-strong: #1b2f3b;
+            --field: #102029;
+            --panel: #0d1a22;
+            --blue: #79c8e0;
+            --teal: #71d6c9;
+            --gold: #f0b75e;
+            --soft-blue: #142d38;
+            --soft-teal: #14322f;
+            --soft-gold: #322717;
+            --shadow: rgba(0, 0, 0, 0.34);
+            --shadow-card: rgba(0, 0, 0, 0.22);
+            --shadow-link: rgba(0, 0, 0, 0.28);
+            --paper-translucent: rgba(19, 33, 42, 0.82);
+            --paper-soft: rgba(19, 33, 42, 0.78);
+            --teal-hover-soft: rgba(113, 214, 201, 0.12);
+            --focus: rgba(240, 183, 94, 0.58);
         }
 
         * {
@@ -31,6 +84,7 @@
 
         html {
             background: var(--page);
+            scroll-behavior: smooth;
         }
 
         body {
@@ -42,15 +96,42 @@
                 linear-gradient(245deg, rgba(208, 138, 29, 0.09), transparent 28%),
                 var(--page);
             line-height: 1.5;
+            text-rendering: optimizeLegibility;
         }
 
         a {
             color: inherit;
             text-decoration: none;
+            transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
         }
 
         a:hover {
             text-decoration: underline;
+        }
+
+        a:focus-visible,
+        a:focus,
+        button:focus-visible,
+        button:focus {
+            outline: 3px solid var(--focus);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: fixed;
+            left: 16px;
+            top: 12px;
+            z-index: 10;
+            padding: 10px 12px;
+            border: 1px solid var(--teal);
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 0 10px 24px var(--shadow);
+            transform: translateY(-140%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
         }
 
         a[href*="softetudes.fr"]:not(.project-link) {
@@ -83,7 +164,8 @@
             grid-template-columns: 295px 1fr;
             background: var(--paper);
             border: 1px solid rgba(16, 42, 67, 0.08);
-            box-shadow: 0 24px 70px rgba(16, 42, 67, 0.16);
+            border-radius: 8px;
+            box-shadow: 0 24px 70px var(--shadow);
             overflow: hidden;
         }
 
@@ -331,7 +413,31 @@
             min-height: 98px;
             padding: 14px;
             border: 1px solid var(--line);
-            background: #fbfdff;
+            background: var(--card);
+        }
+
+        .impact-card,
+        .skill-category,
+        .portfolio-card,
+        .lab-panel,
+        .lab-proof,
+        .bridge-section,
+        .documentation-band,
+        .personal-project,
+        .achievement-card {
+            transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+        }
+
+        @media (hover: hover) {
+            .impact-card:hover,
+            .skill-category:hover,
+            .portfolio-card:hover,
+            .achievement-card:hover,
+                .personal-project:hover {
+                border-color: var(--line-strong);
+                box-shadow: 0 12px 28px var(--shadow-card);
+                transform: translateY(-1px);
+            }
         }
 
         .impact-card:nth-child(2) {
@@ -442,6 +548,106 @@
             margin: 4px 0;
         }
 
+        .personal-project {
+            display: grid;
+            gap: 14px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--teal);
+            background: linear-gradient(180deg, var(--paper), var(--card));
+            border-radius: 8px;
+        }
+
+        .personal-project-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: baseline;
+        }
+
+        .personal-project h3 {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .project-meta {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .project-summary {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .project-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .highlight-card {
+            padding: 12px;
+            border: 1px solid rgba(15, 95, 122, 0.16);
+            background: var(--paper-translucent);
+        }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--ink);
+            font-size: 12px;
+        }
+
+        .highlight-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .achievement-card {
+            min-height: 96px;
+            padding: 13px;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--teal);
+            background: var(--card);
+        }
+
+        .achievement-card:nth-child(2n) {
+            border-top-color: var(--blue);
+        }
+
+        .achievement-card:nth-child(3n) {
+            border-top-color: var(--gold);
+        }
+
+        .achievement-card strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--ink);
+            font-size: 12.5px;
+            line-height: 1.3;
+        }
+
+        .achievement-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -453,7 +659,7 @@
             padding: 14px;
             border: 1px solid var(--line);
             border-top: 3px solid var(--blue);
-            background: #fbfdff;
+            background: var(--card);
         }
 
         .skill-category:nth-child(2) {
@@ -479,6 +685,28 @@
             color: var(--muted);
             font-size: 12px;
             line-height: 1.48;
+        }
+
+        .skill-category ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skill-category li {
+            display: inline-flex;
+            align-items: center;
+            min-height: 23px;
+            padding: 4px 7px;
+            border: 1px solid rgba(15, 95, 122, 0.16);
+            background: var(--field);
+            color: var(--muted);
+            font-size: 11.5px;
+            font-weight: 700;
+            line-height: 1.1;
         }
 
         .web-portfolio {
@@ -526,7 +754,7 @@
         .lab-panel,
         .lab-proof {
             border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.82);
+            background: var(--paper-translucent);
             border-radius: 8px;
         }
 
@@ -565,7 +793,7 @@
             min-height: 26px;
             padding: 5px 8px;
             border: 1px solid rgba(15, 95, 122, 0.18);
-            background: #ffffff;
+            background: var(--field);
             color: var(--blue);
             font-size: 12px;
             font-weight: 800;
@@ -649,7 +877,7 @@
         .bridge-item {
             padding: 12px;
             border: 1px solid rgba(15, 95, 122, 0.18);
-            background: rgba(255, 255, 255, 0.78);
+            background: var(--paper-soft);
             border-radius: 8px;
         }
 
@@ -671,7 +899,7 @@
         .portfolio-card {
             overflow: hidden;
             border: 1px solid var(--line);
-            background: #ffffff;
+            background: var(--paper);
             border-radius: 8px;
         }
 
@@ -793,9 +1021,9 @@
             margin-top: 14px;
             padding: 10px 12px;
             border: 1px solid rgba(208, 138, 29, 0.42);
-            background: #ffffff;
+            background: var(--field);
             color: var(--ink);
-            box-shadow: 0 8px 18px rgba(16, 42, 67, 0.08);
+            box-shadow: 0 8px 18px var(--shadow-card);
             font-size: 12px;
             font-weight: 800;
             line-height: 1.2;
@@ -831,13 +1059,60 @@
             color: #ffffff;
         }
 
+        .top-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin: 10px 0 12px;
+        }
+
+        .theme-switch {
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            border-radius: 8px;
+        }
+
+        .theme-button {
+            min-height: 32px;
+            padding: 7px 10px;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .theme-button[aria-pressed="true"] {
+            background: var(--teal);
+            color: #ffffff;
+            box-shadow: 0 6px 14px var(--shadow-link);
+        }
+
+        .theme-button:hover {
+            color: var(--ink);
+            background: var(--teal-hover-soft);
+        }
+
+        .theme-button[aria-pressed="true"]:hover {
+            color: #ffffff;
+            background: var(--blue);
+        }
+
         /* Container for multiple action buttons at the top of the resume */
         .action-buttons {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin: 0;
         }
         /* Elements with this class are hidden in the web view and displayed only when printing */
         .print-only {
@@ -890,6 +1165,10 @@
             line-height: 1.45;
         }
 
+        .print-online-note {
+            display: none;
+        }
+
         @media screen and (max-width: 860px) {
             html,
             body {
@@ -911,6 +1190,8 @@
             .timeline,
             .experience-item,
             .impact-card,
+            .personal-project,
+            .achievement-card,
             .skill-category,
             .web-portfolio,
             .portfolio-shell,
@@ -959,6 +1240,8 @@
             }
 
             .impact-grid,
+            .project-highlight-grid,
+            .achievement-grid,
             .skills-grid,
             .lab-summary,
             .bridge-grid,
@@ -982,7 +1265,16 @@
                 min-width: 0;
             }
 
+            .personal-project-header {
+                display: grid;
+                gap: 4px;
+            }
+
             .job-dates {
+                white-space: normal;
+            }
+
+            .project-meta {
                 white-space: normal;
             }
 
@@ -1005,7 +1297,10 @@
             .compact-list span,
             .summary,
             .impact-card span,
+            .highlight-card span,
+            .achievement-card span,
             .skill-category p,
+            .skill-category li,
             .job-description,
             .portfolio-lead,
             .portfolio-card p,
@@ -1067,12 +1362,50 @@
             .lab-panel,
             .lab-proof,
             .bridge-section,
+            .personal-project,
+            .achievement-card,
             .documentation-band {
                 padding: 15px;
             }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
         @media print {
+            :root {
+                color-scheme: light;
+                --ink: #17212f;
+                --muted: #5c6675;
+                --line: #d9e1ea;
+                --line-strong: #b9c7d4;
+                --paper: #ffffff;
+                --page: #ffffff;
+                --card: #fbfdff;
+                --card-strong: #ffffff;
+                --field: #ffffff;
+                --panel: #102a43;
+                --blue: #0f5f7a;
+                --teal: #0f766e;
+                --gold: #d08a1d;
+                --soft-blue: #e8f4f7;
+                --soft-teal: #e7f6f3;
+                --soft-gold: #fff5df;
+                --shadow: rgba(16, 42, 67, 0.16);
+                --focus: rgba(208, 138, 29, 0.48);
+            }
+
             @page {
                 size: A4 portrait;
                 margin: 4.5mm;
@@ -1095,6 +1428,14 @@
                 display: none !important;
             }
 
+            .skip-link {
+                display: none !important;
+            }
+
+            .top-actions {
+                display: none !important;
+            }
+
             /* Show elements with print-only class when printing */
             .print-only {
                 display: block !important;
@@ -1102,6 +1443,80 @@
 
             .strengths-section {
                 display: none !important;
+            }
+
+            [aria-labelledby="skills-title"] {
+                display: none !important;
+            }
+
+            #achievements-title {
+                break-before: auto;
+            }
+
+            .achievement-card,
+            .skill-category,
+            .personal-project,
+            .experience-item {
+                break-inside: avoid;
+            }
+
+            .personal-project {
+                gap: 2px;
+                padding: 0 0 0 6px;
+                border: 0;
+                border-radius: 0;
+                border-left: 0;
+                background: transparent;
+            }
+
+            .personal-project::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 3px;
+                width: 3.5px;
+                height: 3.5px;
+                background: var(--gold);
+            }
+
+            .personal-project-header {
+                display: flex;
+                align-items: baseline;
+                gap: 4px;
+            }
+
+            .personal-project h3 {
+                font-size: 7.55pt;
+                line-height: 1.08;
+            }
+
+            .project-meta {
+                font-size: 6.4pt;
+                line-height: 1.08;
+            }
+
+            .project-summary {
+                margin-top: 1px;
+                font-size: 6.35pt;
+                line-height: 1.1;
+            }
+
+            .project-highlight-grid {
+                display: none !important;
+            }
+
+            .project-print-list {
+                display: grid !important;
+                gap: 0;
+                margin: 1px 0 0;
+                padding-left: 8px;
+                color: var(--muted);
+                font-size: 6.25pt;
+                line-height: 1.08;
+            }
+
+            .project-print-list li {
+                margin: 0;
             }
 
             /* Hide the download link when printing or generating the PDF */
@@ -1928,15 +2343,257 @@
                 }
             }
         }
+
+        @media print {
+            body {
+                font-size: 8pt !important;
+                line-height: 1.14 !important;
+            }
+
+            .page {
+                width: 100% !important;
+                min-height: 288mm !important;
+                grid-template-columns: 45mm minmax(0, 1fr) !important;
+                transform: none !important;
+            }
+
+            .sidebar {
+                min-height: 288mm !important;
+                justify-content: space-between !important;
+                padding: 3mm 2.4mm !important;
+            }
+
+            .main {
+                padding: 4mm 4.4mm !important;
+                min-height: 280mm !important;
+                display: block !important;
+            }
+
+            h1 {
+                font-size: 16.8pt !important;
+            }
+
+            .role,
+            .sidebar-title {
+                font-size: 5.55pt !important;
+                line-height: 1.04 !important;
+            }
+
+            .identity {
+                padding-bottom: 4px !important;
+            }
+
+            .identity-mark {
+                width: 20px !important;
+                height: 20px !important;
+                margin-bottom: 4px !important;
+                font-size: 6.2pt !important;
+            }
+
+            .headline {
+                font-size: 14.2pt !important;
+                line-height: 1.06 !important;
+            }
+
+            .summary {
+                font-size: 7.35pt !important;
+                line-height: 1.18 !important;
+            }
+
+            .intro {
+                gap: 4px !important;
+                margin-bottom: 5px !important;
+            }
+
+            .impact-grid {
+                gap: 4px !important;
+            }
+
+            .impact-card {
+                min-height: auto !important;
+                padding: 6px 7px !important;
+            }
+
+            .impact-card strong {
+                margin-bottom: 2px !important;
+                font-size: 7pt !important;
+            }
+
+            .impact-card span {
+                font-size: 6.35pt !important;
+                line-height: 1.15 !important;
+            }
+
+            .section {
+                margin-top: 9px !important;
+            }
+
+            .section-title {
+                margin-bottom: 4px !important;
+                font-size: 7.15pt !important;
+                line-height: 1.08 !important;
+            }
+
+            .personal-project {
+                position: relative !important;
+                gap: 0 !important;
+                padding-left: 6px !important;
+            }
+
+            .personal-project h3,
+            .job-position {
+                font-size: 7.75pt !important;
+                line-height: 1.1 !important;
+            }
+
+            .project-meta,
+            .job-dates,
+            .job-company {
+                font-size: 6.55pt !important;
+                line-height: 1.08 !important;
+            }
+
+            .project-summary {
+                font-size: 6.45pt !important;
+                line-height: 1.12 !important;
+            }
+
+            .project-print-list {
+                font-size: 6.25pt !important;
+                line-height: 1.1 !important;
+            }
+
+            .timeline {
+                gap: 5px !important;
+            }
+
+            .experience-item {
+                padding-left: 5px !important;
+            }
+
+            .job-description {
+                margin-top: 1px !important;
+                font-size: 6.3pt !important;
+                line-height: 1.1 !important;
+            }
+
+            .job-description ul {
+                padding-left: 7px !important;
+            }
+
+            .job-description li {
+                margin: 0 !important;
+            }
+
+            .experience-item li:nth-child(n+5) {
+                display: list-item !important;
+            }
+
+            .achievement-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 5px !important;
+            }
+
+            .achievement-card {
+                min-height: auto !important;
+                padding: 6px 7px !important;
+            }
+
+            .achievement-card strong {
+                margin-bottom: 2px !important;
+                font-size: 6.55pt !important;
+                line-height: 1.08 !important;
+            }
+
+            .achievement-card span {
+                font-size: 5.95pt !important;
+                line-height: 1.1 !important;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 5px !important;
+            }
+
+            .skill-category {
+                min-height: auto !important;
+                padding: 5px 6px !important;
+            }
+
+            .skill-category strong {
+                margin-bottom: 2px !important;
+                font-size: 6.2pt !important;
+                line-height: 1.08 !important;
+                letter-spacing: 0.1px !important;
+            }
+
+            .skill-category ul {
+                gap: 1.5px !important;
+            }
+
+            .skill-category li {
+                min-height: 8px !important;
+                padding: 1.5px 2.5px !important;
+                font-size: 5.75pt !important;
+                line-height: 1 !important;
+            }
+
+            .print-online-note {
+                display: block !important;
+                margin-top: 9px !important;
+                padding: 6px 7px !important;
+                border: 1px solid var(--line) !important;
+                border-left: 3px solid var(--teal) !important;
+                background: var(--soft-blue) !important;
+                color: var(--muted) !important;
+                font-size: 6.45pt !important;
+                line-height: 1.18 !important;
+            }
+
+            .print-online-note strong {
+                color: var(--ink) !important;
+            }
+
+            .compact-list,
+            .contact-item {
+                font-size: 5.35pt !important;
+                line-height: 1.02 !important;
+            }
+
+            .compact-list {
+                gap: 2px !important;
+            }
+
+            .compact-list strong {
+                font-size: 5.45pt !important;
+                line-height: 1.02 !important;
+            }
+
+            .qr-card {
+                grid-template-columns: 17mm 1fr !important;
+                gap: 3px !important;
+            }
+
+            .qr-frame {
+                width: 17mm !important;
+                height: 17mm !important;
+                padding: 0.8mm !important;
+            }
+
+            .qr-caption {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
     <article class="page">
         <aside class="sidebar">
             <header class="identity">
                 <div class="identity-mark" aria-hidden="true">JM</div>
                 <h1>Jean-Marie<br>Cardoso</h1>
-                <p class="role"> Administrateur Systèmes & Réseaux Junior</p>
+                <p class="role">Administrateur Systèmes &amp; Infrastructures Sécurisées</p>
             </header>
 
             <section class="sidebar-section" aria-labelledby="contact-title">
@@ -2044,59 +2701,81 @@
         <!-- Section badge LinkedIn déplacée dans la liste de contact -->
         </aside>
 
-        <main class="main">
-            <!-- Action buttons at the top of the main content -->
-            <div class="action-buttons">
-                <a class="download-link" href="assets/docs/cv-jean-marie-cardoso.pdf" download>
-                    Télécharger le&nbsp;CV&nbsp;PDF
-                </a>
-                <a class="download-link" href="#portfolio-title">
-                    Voir le&nbsp;portfolio&nbsp;technique
-                </a>
+        <main class="main" id="main-content">
+            <div class="top-actions">
+                <div class="action-buttons" aria-label="Actions du CV">
+                    <a class="download-link" href="assets/docs/cv-jean-marie-cardoso.pdf" download>
+                        Télécharger le&nbsp;CV&nbsp;PDF
+                    </a>
+                    <a class="download-link" href="#portfolio-title">
+                        Voir le&nbsp;portfolio&nbsp;technique
+                    </a>
+                </div>
+                <div class="theme-switch web-only" role="group" aria-label="Choix du thème">
+                    <button class="theme-button" type="button" data-theme-value="auto" aria-pressed="true">Auto</button>
+                    <button class="theme-button" type="button" data-theme-value="light" aria-pressed="false">Clair</button>
+                    <button class="theme-button" type="button" data-theme-value="dark" aria-pressed="false">Sombre</button>
+                </div>
             </div>
 
             <section class="intro" aria-labelledby="profile-title">
                 <p class="intro-kicker">Profil</p>
-                <h2 class="headline" id="profile-title">Administrateur systèmes et réseaux junior</h2>
+                <h2 class="headline" id="profile-title">Administrateur systèmes et infrastructures sécurisées en fin de formation</h2>
                 <p class="summary">
-                    Diplômé TSSR et en formation AIS, avec une expérience pratique en infrastructure, support et sécurité : Windows Server 2022, Active Directory, virtualisation, pfSense, VPN, GLPI et Zabbix. Je développe et administre également <a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, application web métier déployée sur VPS Debian, avec exploitation Nginx, systemd, sauvegardes et durcissement SSH/pare-feu.
+                    Administrateur Systèmes et Infrastructures Sécurisées en fin de formation, actuellement en stage. J'interviens sur des environnements Windows et Linux, l'administration Active Directory, les réseaux et la documentation technique. Curieux et méthodique, j'apprécie l'analyse, la résolution de problèmes et l'amélioration continue des infrastructures.
                 </p>
 
                 <div class="impact-grid" aria-label="Points forts">
                     <div class="impact-card">
-                        <strong>AD, GPO &amp; virtualisation</strong>
-                        <span>Windows Server 2022, Active Directory, DNS, DHCP, RDS, Proxmox, VMware et Hyper-V.</span>
+                        <strong>Analyse &amp; méthode</strong>
+                        <span>Audit de configurations, recherche autonome, vérification et documentation des constats.</span>
                     </div>
                     <div class="impact-card">
-                        <strong>Réseaux sécurisés</strong>
-                        <span>VLAN, switching, routage, pare-feu, pfSense, VPN OpenVPN, segmentation et durcissement.</span>
+                        <strong>Administration encadrée</strong>
+                        <span>Active Directory, GPO, Windows Server, Linux, réseau, VPN et sécurité dans un cadre de formation et de stage.</span>
                     </div>
                     <div class="impact-card">
-                        <strong>Exploitation VPS &amp; projets web</strong>
-                        <span>VPS Debian, Nginx, systemd, pare-feu, sauvegardes, procédures et suivi d'exploitation.</span>
+                        <strong>Documentation utile</strong>
+                        <span>Procédures, comptes rendus, captures de validation, README et capitalisation technique.</span>
                     </div>
                 </div>
+            </section>
+
+            <section class="section" aria-labelledby="personal-project-title">
+                <h2 class="section-title" id="personal-project-title">Projet personnel</h2>
+                <article class="personal-project">
+                    <div class="personal-project-header">
+                        <h3><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, plateforme de calculs techniques bâtiment</h3>
+                        <span class="project-meta">2026 - en cours</span>
+                    </div>
+                    <p class="project-summary">
+                        Conception, développement et exploitation d'une plateforme web métier regroupant des outils de calcul pour le bâtiment. Le projet me sert aussi de terrain concret pour progresser en administration Linux, sécurité, documentation et amélioration continue.
+                    </p>
+                    <ul class="print-only project-print-list">
+                        <li>Développement d'une plateforme web de calculs techniques bâtiment, enrichie progressivement.</li>
+                        <li>Déploiement et administration sur VPS Debian : Nginx HTTPS, systemd, SSH/rsync et sauvegardes.</li>
+                        <li>Sécurisation et exploitation : certificats SSL, UFW, Fail2ban, cron, README et procédures de reprise.</li>
+                    </ul>
+                    <div class="project-highlight-grid" aria-label="Axes du projet Soft Études">
+                        <div class="highlight-card">
+                            <strong>Développement web</strong>
+                            <span>Interface, modules de calcul, gestion des versions et amélioration progressive des outils.</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Hébergement &amp; Linux</strong>
+                            <span>Déploiement sur VPS Debian, Nginx HTTPS, service systemd, droits Unix et mises à jour par SSH/rsync.</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Sécurité &amp; exploitation</strong>
+                            <span>Certificats SSL, SSH par clé, UFW, Fail2ban, sauvegardes, cron, README et procédures de reprise.</span>
+                        </div>
+                    </div>
+                </article>
             </section>
 
             <section class="section" aria-labelledby="experience-title">
                 <h2 class="section-title" id="experience-title">Expérience professionnelle</h2>
                 <div class="timeline">
-                    <article class="experience-item">
-                        <div class="job-header">
-                            <h3 class="job-position">Projet personnel <a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, applications web métiers</h3>
-                            <span class="job-dates">2026 - en cours</span>
-                        </div>
-                        <div class="job-company"><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, projet personnel déployé sur VPS</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Développement et exploitation d'une application web métier CVC/plomberie, utilisée comme terrain réel d'administration système.</li>
-                                <li>Déploiement sur VPS Debian : Nginx HTTPS, reverse proxy API, service systemd, droits Unix et mises à jour par SSH/rsync.</li>
-                                <li>Sécurisation serveur : SSH par clé sur port dédié, UFW, Fail2ban, désactivation LLMNR, Edge Network Firewall OVH et sauvegardes automatisées.</li>
-                                <li>Automatisation d'exploitation : tâches cron, statistiques GoAccess, scripts serveur, cache-busting, README et procédures de reprise.</li>
-                            </ul>
-                        </div>
-                    </article>
-
                     <article class="experience-item">
                         <div class="job-header">
                             <h3 class="job-position">Formation AIS en cours et stage infrastructure systèmes &amp; réseaux</h3>
@@ -2105,11 +2784,11 @@
                         <div class="job-company">STUDI et Autajon, Montélimar</div>
                         <div class="job-description">
                             <ul>
-                                <li>Audit des GPO utilisateurs chez Autajon : analyse de l'existant, axes d'optimisation et durcissement sécurité.</li>
-                                <li>Mise en œuvre des optimisations retenues, avec contrôle de cohérence des paramètres et réduction des risques.</li>
-                                <li>Audit de configurations switch, vérification des VLAN et participation aux mises à jour réseau.</li>
-                                <li>Cadrage d'une refonte d'accès VPN utilisateurs : analyse du besoin, points d'attention et préparation technique.</li>
-                                <li>Renforcement pratique : Windows Server, Active Directory, DNS, DHCP, virtualisation, segmentation, pare-feu et VPN.</li>
+                                <li>Participation à l'audit de GPO utilisateurs : analyse de l'existant, repérage de paramètres sensibles et rédaction de pistes d'optimisation.</li>
+                                <li>Contribution à l'amélioration des stratégies retenues, avec vérification de cohérence et attention portée au durcissement sécurité.</li>
+                                <li>Participation à l'audit de configurations réseau : VLAN, switches HP Aruba, adressage et points de vigilance documentés.</li>
+                                <li>Préparation technique autour d'une refonte d'accès VPN utilisateurs : analyse du besoin, contraintes et éléments de procédure.</li>
+                                <li>Pratique encadrée de l'administration Windows : Active Directory, DNS, DHCP, comptes, droits, documentation et procédures.</li>
                             </ul>
                         </div>
                     </article>
@@ -2122,11 +2801,10 @@
                         <div class="job-company">SNCF Réseau, Carcassonne</div>
                         <div class="job-description">
                             <ul>
-                                <li>Interventions en environnement critique et réglementé, avec respect strict des procédures sécurité.</li>
-                                <li>Diagnostic terrain, analyse d'incidents et priorisation des actions sous contrainte opérationnelle.</li>
-                                <li>Traçabilité des interventions, comptes rendus techniques et continuité de service.</li>
-                                <li>Coordination multi-intervenants dans un contexte exigeant de sécurité et de conformité.</li>
-                                <li>Identification et prévention des risques techniques et humains sur les opérations terrain.</li>
+                                <li>Réalisation d'interventions en environnement critique et réglementé, avec application stricte des procédures sécurité.</li>
+                                <li>Analyse d'incidents terrain, diagnostic méthodique et priorisation des actions sous contrainte opérationnelle.</li>
+                                <li>Production de comptes rendus techniques et traçabilité des interventions pour contribuer à la continuité de service.</li>
+                                <li>Coordination avec plusieurs intervenants dans un contexte exigeant en sécurité, conformité et rigueur documentaire.</li>
                             </ul>
                         </div>
                     </article>
@@ -2139,11 +2817,10 @@
                         <div class="job-company">Rectorats de Mayotte et Montpellier</div>
                         <div class="job-description">
                             <ul>
-                                <li>Accompagnement des personnels et établissements dans l'usage des outils numériques et services dématérialisés.</li>
-                                <li>Support de proximité, diagnostic des incidents courants et assistance aux utilisateurs dans des environnements hétérogènes.</li>
-                                <li>Administration fonctionnelle de plateformes et services numériques éducatifs : accès, comptes et usages.</li>
-                                <li>Sensibilisation aux bonnes pratiques de sécurité, protection des données et usage responsable des outils numériques.</li>
-                                <li>Conception de formations, vulgarisation technique et coordination avec les équipes pédagogiques, techniques et administratives.</li>
+                                <li>Accompagnement d'établissements et de personnels dans la prise en main d'outils numériques et services en ligne.</li>
+                                <li>Diagnostic d'incidents courants, assistance aux utilisateurs et transmission claire des bonnes pratiques.</li>
+                                <li>Administration fonctionnelle de plateformes éducatives : accès, comptes, usages et suivi des demandes.</li>
+                                <li>Création de supports de formation et sensibilisation à la sécurité des usages et à la protection des données.</li>
                             </ul>
                         </div>
                     </article>
@@ -2178,31 +2855,114 @@
                 </div>
             </section>
 
+            <section class="section" aria-labelledby="achievements-title">
+                <h2 class="section-title" id="achievements-title">Réalisations techniques</h2>
+                <div class="achievement-grid">
+                    <div class="achievement-card">
+                        <strong>Audit GPO en entreprise</strong>
+                        <span>Participation à l'analyse de stratégies de groupe, identification de points d'optimisation et documentation des constats.</span>
+                    </div>
+                    <div class="achievement-card">
+                        <strong>Développement de SoftÉtudes.fr</strong>
+                        <span>Création d'une plateforme web de calculs techniques, hébergée et administrée sur VPS Debian.</span>
+                    </div>
+                    <div class="achievement-card">
+                        <strong>Scripts et outils Python</strong>
+                        <span>Développement d'outils personnels pour automatiser des calculs, structurer des données ou accélérer des vérifications.</span>
+                    </div>
+                    <div class="achievement-card">
+                        <strong>Scripts PowerShell</strong>
+                        <span>Travaux pratiques autour de l'administration Windows, de la collecte d'informations et de l'automatisation simple.</span>
+                    </div>
+                    <div class="achievement-card">
+                        <strong>Documentation technique</strong>
+                        <span>Rédaction de procédures, README, captures de validation et points de reprise pour faciliter la maintenance.</span>
+                    </div>
+                    <div class="achievement-card">
+                        <strong>Administration de switches HP Aruba</strong>
+                        <span>Participation à l'analyse de configurations réseau, VLAN, adressage et vérifications associées.</span>
+                    </div>
+                </div>
+            </section>
+
             <section class="section" aria-labelledby="skills-detail-title">
                 <h2 class="section-title" id="skills-detail-title">Compétences détaillées</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <strong>Administration systèmes</strong>
-                        <p>Windows Server 2022, Active Directory, audit et optimisation de GPO utilisateurs, comptes et droits, DNS, DHCP, RDS, Linux, sauvegarde, restauration, VMware, Hyper-V, Proxmox VE.</p>
+                        <strong>Administration</strong>
+                        <ul>
+                            <li>Windows Server</li>
+                            <li>Active Directory</li>
+                            <li>GPO</li>
+                            <li>DNS</li>
+                            <li>DHCP</li>
+                            <li>RDS</li>
+                            <li>Comptes &amp; droits</li>
+                        </ul>
                     </div>
                     <div class="skill-category">
                         <strong>Réseaux</strong>
-                        <p>Adressage IPv4/IPv6, TCP/IP, VLAN, routage inter-VLAN, audit de configurations switch, accès SSH, diagnostic réseau, services réseau, connectivité et équipements.</p>
+                        <ul>
+                            <li>TCP/IP</li>
+                            <li>VLAN</li>
+                            <li>Switching</li>
+                            <li>VPN</li>
+                            <li>IPAM</li>
+                            <li>pfSense</li>
+                            <li>Diagnostic réseau</li>
+                        </ul>
                     </div>
                     <div class="skill-category">
-                        <strong>Sécurité &amp; exploitation</strong>
-                        <p>Segmentation réseau, pare-feu, VPN OpenVPN, pfSense, durcissement GPO, supervision Zabbix, journalisation, gestion des incidents et procédures.</p>
+                        <strong>Linux</strong>
+                        <ul>
+                            <li>Debian</li>
+                            <li>Ubuntu</li>
+                            <li>Bash</li>
+                            <li>Cron</li>
+                            <li>Nginx</li>
+                            <li>systemd</li>
+                            <li>SSH</li>
+                        </ul>
                     </div>
                     <div class="skill-category">
-                        <strong>Support &amp; communication</strong>
-                        <p>Support utilisateurs N1/N2, GLPI, assistance technique, accompagnement au changement, tenue d'un Wiki.js, rédaction de procédures et transmission pédagogique.</p>
+                        <strong>Scripting</strong>
+                        <ul>
+                            <li>PowerShell</li>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>Scripts serveur</li>
+                            <li>Automatisation simple</li>
+                        </ul>
                     </div>
                     <div class="skill-category">
-                        <strong>Administration VPS &amp; exploitation web</strong>
-                        <p>VPS Linux/Debian, SSH par clé, UFW, Fail2ban, Nginx HTTPS, reverse proxy, systemd, cron, sauvegardes, supervision d'usage et documentation d'exploitation.</p>
+                        <strong>Outils</strong>
+                        <ul>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>GLPI</li>
+                            <li>Zabbix</li>
+                            <li>Notion</li>
+                            <li>Wiki.js</li>
+                            <li>Proxmox VE</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Sécurité &amp; documentation</strong>
+                        <ul>
+                            <li>UFW</li>
+                            <li>Fail2ban</li>
+                            <li>Certificats SSL</li>
+                            <li>Sauvegardes</li>
+                            <li>Procédures</li>
+                            <li>Comptes rendus</li>
+                        </ul>
                     </div>
                 </div>
             </section>
+
+            <p class="print-online-note">
+                <strong>CV en ligne :</strong> portfolio technique, captures, projet SoftÉtudes.fr et dossier AIS accessibles via le QR code.
+            </p>
 
         </main>
     </article>
@@ -2220,7 +2980,7 @@
             <section class="bridge-section" aria-labelledby="pfn-title">
                 <div>
                     <p class="project-label">Activité PFN</p>
-                    <h3 id="pfn-title">Professeur formateur numérique, référent numérique et correspondant ENT</h3>
+                    <h3 id="pfn-title">Professeur formateur numérique et correspondant ENT</h3>
                     <p>
                         Missions officielles exercées entre 2015 et 2020 : accompagnement des établissements, support aux utilisateurs, administration fonctionnelle de services en ligne et sécurité des usages.
                     </p>
@@ -2293,7 +3053,7 @@
 
             <div class="portfolio-grid">
                 <article class="portfolio-card">
-                    <img src="assets/portfolio/soft-etudes-note-calcul.jpg?v=20260604" alt="Interface softetudes.fr avec catalogue de modules et calculateur métier">
+                    <img src="assets/portfolio/soft-etudes-note-calcul.jpg?v=20260701" alt="Interface softetudes.fr avec catalogue de modules et calculateur métier">
                     <div class="portfolio-card-body">
                         <p class="project-label">Application métier / notes de calcul</p>
                         <h3><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, outil web de calculs techniques</h3>
@@ -2310,7 +3070,7 @@
                         </div>
                         <ul class="proof-list">
                             <li><strong>Objectif :</strong> rendre des notes de calcul plus rapides, centralisées et réutilisables.</li>
-                            <li><strong>Solution :</strong> API Express locale puis proxifiée en production, Nginx, HTTPS, systemd, cron, scripts serveur, sécurisation VPS et 25 modules référencés.</li>
+                            <li><strong>Solution :</strong> application web versionnée, Nginx, HTTPS, systemd, cron, scripts serveur, sécurisation VPS et catalogue enrichi progressivement.</li>
                             <li><strong>Résultat :</strong> plateforme en ligne, versionnée, administrée à distance et enrichie module par module.</li>
                         </ul>
                         <a class="project-link" href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer" aria-label="Tester la démonstration en ligne softetudes.fr">
@@ -2460,5 +3220,71 @@
             </section>
         </div>
     </section>
+    <script>
+        (function () {
+            var storageKey = "cv-theme";
+            var media = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+            var buttons = Array.prototype.slice.call(document.querySelectorAll(".theme-button"));
+            var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+            function readTheme() {
+                try {
+                    return localStorage.getItem(storageKey) || "auto";
+                } catch (error) {
+                    return "auto";
+                }
+            }
+
+            function saveTheme(choice) {
+                try {
+                    localStorage.setItem(storageKey, choice);
+                } catch (error) {
+                    return false;
+                }
+                return true;
+            }
+
+            function resolveTheme(choice) {
+                return choice === "auto" ? (media && media.matches ? "dark" : "light") : choice;
+            }
+
+            function applyTheme(choice) {
+                var nextChoice = choice || readTheme();
+                var resolved = resolveTheme(nextChoice);
+                document.documentElement.setAttribute("data-theme-choice", nextChoice);
+                document.documentElement.setAttribute("data-theme", resolved);
+                if (themeMeta) {
+                    themeMeta.setAttribute("content", resolved === "dark" ? "#0d1a22" : "#102a43");
+                }
+                buttons.forEach(function (button) {
+                    button.setAttribute("aria-pressed", button.getAttribute("data-theme-value") === nextChoice ? "true" : "false");
+                });
+            }
+
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var choice = button.getAttribute("data-theme-value");
+                    saveTheme(choice);
+                    applyTheme(choice);
+                });
+            });
+
+            if (media && media.addEventListener) {
+                media.addEventListener("change", function () {
+                    if (readTheme() === "auto") {
+                        applyTheme("auto");
+                    }
+                });
+            } else if (media && media.addListener) {
+                media.addListener(function () {
+                    if (readTheme() === "auto") {
+                        applyTheme("auto");
+                    }
+                });
+            }
+
+            applyTheme();
+        })();
+    </script>
     </body>
 </html>
