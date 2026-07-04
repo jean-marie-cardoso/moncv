@@ -953,24 +953,10 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             display: block;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
+            background: var(--field);
             border-bottom: 1px solid var(--line);
-        }
-
-        .portfolio-placeholder {
-            display: grid;
-            place-items: center;
-            min-height: 165px;
-            padding: 18px;
-            border-bottom: 1px solid var(--line);
-            background:
-                linear-gradient(135deg, rgba(15, 95, 122, 0.14), transparent 52%),
-                var(--soft-blue);
-            color: var(--blue);
-            font-size: 12px;
-            font-weight: 800;
-            text-align: center;
         }
 
         .portfolio-card-body {
@@ -998,6 +984,53 @@
         .portfolio-facts dd {
             margin: 0;
             color: var(--muted);
+        }
+
+        .portfolio-compact {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .portfolio-compact .portfolio-card-body {
+            padding: 16px;
+        }
+
+        .portfolio-captures {
+            display: grid;
+            gap: 16px;
+        }
+
+        .capture-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .capture-card {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            border-radius: 8px;
+        }
+
+        .capture-card img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: block;
+            object-fit: contain;
+            background: var(--field);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .capture-card span {
+            display: block;
+            padding: 9px 10px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.25;
         }
 
         .project-tags {
@@ -1330,6 +1363,8 @@
             .lab-summary,
             .bridge-grid,
             .portfolio-grid,
+            .capture-grid,
+            .portfolio-compact,
             .documentation-band {
                 grid-template-columns: 1fr;
             }
@@ -2443,14 +2478,17 @@
 
             .sidebar {
                 min-height: 288mm !important;
-                justify-content: space-between !important;
+                justify-content: flex-start !important;
+                gap: 11mm !important;
                 padding: 3mm 2.4mm !important;
             }
 
             .main {
                 padding: 4mm 4.4mm !important;
                 min-height: 280mm !important;
-                display: block !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
             }
 
             h1 {
@@ -2624,7 +2662,7 @@
 
             .print-online-note {
                 display: block !important;
-                margin-top: 9px !important;
+                margin-top: 0 !important;
                 padding: 6px 7px !important;
                 border: 1px solid var(--line) !important;
                 border-left: 3px solid var(--teal) !important;
@@ -2959,10 +2997,7 @@
         <div class="portfolio-shell">
             <header class="portfolio-header">
                 <p class="intro-kicker">Portfolio technique</p>
-                <h2 class="portfolio-title" id="portfolio-title">Réalisations détaillées, en complément du CV</h2>
-                <p class="portfolio-lead">
-                    Cette partie donne plus de contexte sur quelques travaux réels. Le CV reste volontairement synthétique ; les détails sont ici pour préparer un échange technique.
-                </p>
+                <h2 class="portfolio-title" id="portfolio-title">Réalisations techniques</h2>
             </header>
 
             <div class="portfolio-grid">
@@ -3030,7 +3065,7 @@
                 </article>
 
                 <article class="portfolio-card">
-                    <div class="portfolio-placeholder">Administration VPS Linux</div>
+                    <img src="assets/portfolio/linux-storage-lab.jpg" alt="Capture d'administration Linux dans un environnement Proxmox">
                     <div class="portfolio-card-body">
                         <p class="project-label">Exploitation</p>
                         <h3>Administration VPS Linux</h3>
@@ -3061,7 +3096,7 @@
                 </article>
 
                 <article class="portfolio-card">
-                    <div class="portfolio-placeholder">Switches HP Aruba / VLAN</div>
+                    <img src="assets/portfolio/switching-vlan-lab.jpg" alt="Capture d'un schéma réseau de laboratoire VLAN">
                     <div class="portfolio-card-body">
                         <p class="project-label">Réseau</p>
                         <h3>Switches HP Aruba / VLAN</h3>
@@ -3091,68 +3126,62 @@
                     </div>
                 </article>
 
-                <article class="portfolio-card">
-                    <div class="portfolio-placeholder">Scripts PowerShell / Python</div>
-                    <div class="portfolio-card-body">
-                        <p class="project-label">Automatisation</p>
-                        <h3>Scripts PowerShell / Python</h3>
-                        <p>Création et adaptation de scripts pour automatiser des tâches système.</p>
-                        <dl class="portfolio-facts">
-                            <div>
-                                <dt>Contexte</dt>
-                                <dd>Travaux personnels et besoins ponctuels de collecte ou d'automatisation.</dd>
+                <div class="portfolio-compact">
+                    <article class="portfolio-card">
+                        <div class="portfolio-card-body">
+                            <p class="project-label">Automatisation</p>
+                            <h3>Scripts PowerShell / Python</h3>
+                            <p>Création et adaptation de scripts simples pour automatiser des tâches système, collecter des informations et documenter des vérifications.</p>
+                            <div class="project-tags">
+                                <span>PowerShell</span>
+                                <span>Python</span>
+                                <span>Windows</span>
+                                <span>Tests</span>
+                                <span>Documentation</span>
                             </div>
-                            <div>
-                                <dt>Objectif</dt>
-                                <dd>Gagner du temps sur des tâches répétitives et fiabiliser certains relevés.</dd>
-                            </div>
-                            <div>
-                                <dt>Actions</dt>
-                                <dd>Scripts simples, tests, corrections progressives et documentation d'usage.</dd>
-                            </div>
-                            <div>
-                                <dt>Technologies</dt>
-                                <dd>PowerShell, Python, Windows, fichiers de sortie, documentation.</dd>
-                            </div>
-                            <div>
-                                <dt>Résultat</dt>
-                                <dd>Outils utilisables pour apprendre, vérifier et documenter.</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </article>
+                        </div>
+                    </article>
 
-                <article class="portfolio-card">
-                    <div class="portfolio-placeholder">Documentation technique</div>
-                    <div class="portfolio-card-body">
-                        <p class="project-label">Méthode</p>
-                        <h3>Documentation technique</h3>
-                        <p>Rédaction de procédures, constats et notes utiles au suivi technique.</p>
-                        <dl class="portfolio-facts">
-                            <div>
-                                <dt>Contexte</dt>
-                                <dd>Documentation produite dans le cadre de la formation, du stage et des projets personnels.</dd>
+                    <article class="portfolio-card">
+                        <div class="portfolio-card-body">
+                            <p class="project-label">Méthode</p>
+                            <h3>Documentation technique</h3>
+                            <p>Rédaction de procédures, constats, captures et notes techniques pour garder une trace claire des actions réalisées.</p>
+                            <div class="project-tags">
+                                <span>Notion</span>
+                                <span>GitHub</span>
+                                <span>Markdown</span>
+                                <span>Procédures</span>
+                                <span>Suivi</span>
                             </div>
-                            <div>
-                                <dt>Objectif</dt>
-                                <dd>Garder une trace claire des configurations, vérifications et actions réalisées.</dd>
-                            </div>
-                            <div>
-                                <dt>Actions</dt>
-                                <dd>Procédures, captures, synthèses, points de vigilance et suivi des améliorations.</dd>
-                            </div>
-                            <div>
-                                <dt>Technologies</dt>
-                                <dd>Notion, GitHub, Markdown, documentation d'exploitation.</dd>
-                            </div>
-                            <div>
-                                <dt>Résultat</dt>
-                                <dd>Supports plus faciles à relire, transmettre et défendre en entretien.</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </article>
+                        </div>
+                    </article>
+                </div>
             </div>
+
+            <section class="portfolio-captures" aria-labelledby="captures-title">
+                <div class="portfolio-subhead">
+                    <h3 id="captures-title">Captures complémentaires</h3>
+                </div>
+                <div class="capture-grid">
+                    <figure class="capture-card">
+                        <img src="assets/portfolio/linux-security-lab.jpg" alt="Capture de logs Apache en terminal Linux">
+                        <span>Linux - lecture de logs Apache et vérifications sécurité.</span>
+                    </figure>
+                    <figure class="capture-card">
+                        <img src="assets/portfolio/zabbix-lab.jpg" alt="Capture d'une interface Zabbix de laboratoire">
+                        <span>Zabbix - supervision système et indicateurs serveur.</span>
+                    </figure>
+                    <figure class="capture-card">
+                        <img src="assets/portfolio/pfsense-dashboard.jpg" alt="Capture d'un tableau de bord pfSense">
+                        <span>pfSense - réseau, règles et suivi d'état.</span>
+                    </figure>
+                    <figure class="capture-card">
+                        <img src="assets/portfolio/glpi-support.jpg" alt="Capture d'une interface GLPI">
+                        <span>GLPI - support, inventaire et suivi d'exploitation.</span>
+                    </figure>
+                </div>
+            </section>
         </div>
     </section>
 
