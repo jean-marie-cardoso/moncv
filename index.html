@@ -134,7 +134,7 @@
             transform: translateY(0);
         }
 
-        a[href*="softetudes.fr"]:not(.project-link) {
+        a[href*="softetudes.fr"]:not(.project-link):not(.download-link) {
             color: var(--teal);
             font-weight: 800;
             text-decoration: underline;
@@ -142,7 +142,7 @@
             text-underline-offset: 3px;
         }
 
-        a[href*="softetudes.fr"]:not(.project-link)::after {
+        a[href*="softetudes.fr"]:not(.project-link):not(.download-link)::after {
             content: "↗";
             display: inline-block;
             margin-left: 3px;
@@ -152,7 +152,7 @@
             transform: translateY(-0.05em);
         }
 
-        a[href*="softetudes.fr"]:not(.project-link):hover {
+        a[href*="softetudes.fr"]:not(.project-link):not(.download-link):hover {
             color: var(--blue);
             text-decoration-thickness: 2px;
         }
@@ -2611,7 +2611,6 @@
                         <span class="contact-label">GitHub</span>
                         <span class="contact-value"><a href="https://github.com/jean-marie-cardoso" target="_blank" rel="noopener noreferrer">github.com/jean-marie-cardoso</a></span>
                     </div>
-                    <!-- Badge LinkedIn inséré pour la version web uniquement -->
                     <div class="web-only linkedin-profile">
                         <div class="linkedin-badge-card">
                             <span class="linkedin-badge-icon" aria-hidden="true">in</span>
@@ -2629,38 +2628,8 @@
                 </div>
             </section>
 
-            <section class="sidebar-section qr-section" aria-labelledby="qr-title">
-                <h2 class="sidebar-title" id="qr-title">CV en ligne</h2>
-                <div class="qr-card">
-                    <div class="qr-frame">
-                        <img src="assets/img/qr_cv_en_ligne.png" alt="QR code vers la version en ligne du CV">
-                    </div>
-                    <p class="qr-caption">Scanner pour ouvrir la version en ligne du CV.</p>
-                </div>
-            </section>
-
-            <section class="sidebar-section" aria-labelledby="skills-title">
-                <h2 class="sidebar-title" id="skills-title">Mots-clés techniques</h2>
-                <div class="tag-list">
-                    <span class="tag">Windows Server 2022</span>
-                    <span class="tag">Active Directory</span>
-                    <span class="tag">DNS / DHCP</span>
-                    <span class="tag">Proxmox VE</span>
-                    <span class="tag">VMware / Hyper-V</span>
-                    <span class="tag">Routage inter-VLAN</span>
-                    <span class="tag">Pare-feu pfSense</span>
-                    <span class="tag">VPN OpenVPN</span>
-                    <span class="tag">Gestion de parc GLPI</span>
-                    <span class="tag">Supervision Zabbix</span>
-                    <span class="tag">Support N1/N2</span>
-                    <span class="tag">Administration VPS</span>
-                    <span class="tag">UFW / Fail2ban</span>
-                    <span class="tag">Nginx / systemd</span>
-                </div>
-            </section>
-
             <section class="sidebar-section" aria-labelledby="training-title">
-                <h2 class="sidebar-title" id="training-title">Formation</h2>
+                <h2 class="sidebar-title" id="training-title">Formations / certifications</h2>
                 <ul class="compact-list">
                     <li>
                         <strong>Titre professionnel TSSR</strong>
@@ -2681,34 +2650,31 @@
                 </ul>
             </section>
 
-            <section class="sidebar-section strengths-section" aria-labelledby="strengths-title">
-                <h2 class="sidebar-title" id="strengths-title">Atouts</h2>
-                <ul class="compact-list">
-                    <li>
-                        <strong>Culture sécurité</strong>
-                        <span>Habitude des environnements critiques, des procédures et de la traçabilité.</span>
-                    </li>
-                    <li>
-                        <strong>Sens utilisateur</strong>
-                        <span>Support, pédagogie et accompagnement au changement.</span>
-                    </li>
-                    <li>
-                        <strong>Rigueur terrain</strong>
-                        <span>Diagnostic méthodique, reporting et continuité de service.</span>
-                    </li>
-                </ul>
+            <section class="sidebar-section qr-section" aria-labelledby="qr-title">
+                <h2 class="sidebar-title" id="qr-title">CV en ligne</h2>
+                <div class="qr-card">
+                    <div class="qr-frame">
+                        <img src="assets/img/qr_cv_en_ligne.png" alt="QR code vers la version en ligne du CV">
+                    </div>
+                    <p class="qr-caption">Scanner pour ouvrir la version en ligne du CV.</p>
+                </div>
             </section>
-        <!-- Section badge LinkedIn déplacée dans la liste de contact -->
         </aside>
 
         <main class="main" id="main-content">
             <div class="top-actions">
                 <div class="action-buttons" aria-label="Actions du CV">
-                    <a class="download-link" href="assets/docs/cv-jean-marie-cardoso.pdf" download>
+                    <a class="download-link" href="assets/docs/CV_Jean-Marie_Cardoso.pdf" download>
                         Télécharger le&nbsp;CV&nbsp;PDF
                     </a>
-                    <a class="download-link" href="#portfolio-title">
-                        Voir le&nbsp;portfolio&nbsp;technique
+                    <a class="download-link" href="https://github.com/jean-marie-cardoso" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                    <a class="download-link" href="https://fr.linkedin.com/in/jmtc26780" target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                    <a class="download-link" href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">
+                        SoftEtudes.fr
                     </a>
                 </div>
                 <div class="theme-switch web-only" role="group" aria-label="Choix du thème">
@@ -2722,59 +2688,49 @@
                 <p class="intro-kicker">Profil</p>
                 <h2 class="headline" id="profile-title">Administrateur systèmes et infrastructures sécurisées en fin de formation</h2>
                 <p class="summary">
-                    Administrateur Systèmes et Infrastructures Sécurisées en fin de formation, actuellement en stage. J'interviens sur des environnements Windows et Linux, l'administration Active Directory, les réseaux et la documentation technique. Curieux et méthodique, j'apprécie l'analyse, la résolution de problèmes et l'amélioration continue des infrastructures.
+                    Profil junior en fin de formation AIS, actuellement en stage. J'interviens sur Windows Server, Linux, Active Directory, les réseaux et la documentation technique. Curieux et méthodique, je cherche à progresser sur l'administration systèmes, les infrastructures sécurisées et le support infrastructure.
                 </p>
 
                 <div class="impact-grid" aria-label="Points forts">
                     <div class="impact-card">
-                        <strong>Analyse &amp; méthode</strong>
-                        <span>Audit de configurations, recherche autonome, vérification et documentation des constats.</span>
+                        <strong>Ce que je recherche</strong>
+                        <span>Premier poste d'administrateur systèmes et réseaux junior, support infrastructure N2 ou administrateur infrastructures sécurisées junior.</span>
                     </div>
                     <div class="impact-card">
-                        <strong>Administration encadrée</strong>
-                        <span>Active Directory, GPO, Windows Server, Linux, réseau, VPN et sécurité dans un cadre de formation et de stage.</span>
+                        <strong>Positionnement</strong>
+                        <span>Profil opérationnel junior, à l'aise avec l'analyse, les procédures et la montée en compétence.</span>
                     </div>
                     <div class="impact-card">
-                        <strong>Documentation utile</strong>
-                        <span>Procédures, comptes rendus, captures de validation, README et capitalisation technique.</span>
+                        <strong>Approche</strong>
+                        <span>Travail factuel : constats, vérifications, documentation et amélioration continue.</span>
                     </div>
                 </div>
             </section>
 
-            <section class="section" aria-labelledby="personal-project-title">
-                <h2 class="section-title" id="personal-project-title">Projet personnel</h2>
-                <article class="personal-project">
-                    <div class="personal-project-header">
-                        <h3><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, plateforme de calculs techniques bâtiment</h3>
-                        <span class="project-meta">2026 - en cours</span>
+            <section class="section" aria-labelledby="skills-detail-title">
+                <h2 class="section-title" id="skills-detail-title">Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <strong>Systèmes</strong>
+                        <p>Windows Server, Linux, Active Directory, GPO.</p>
                     </div>
-                    <p class="project-summary">
-                        Conception, développement et exploitation d'une plateforme web métier regroupant des outils de calcul pour le bâtiment. Le projet me sert aussi de terrain concret pour progresser en administration Linux, sécurité, documentation et amélioration continue.
-                    </p>
-                    <ul class="print-only project-print-list">
-                        <li>Développement d'une plateforme web de calculs techniques bâtiment, enrichie progressivement.</li>
-                        <li>Déploiement et administration sur VPS Debian : Nginx HTTPS, systemd, SSH/rsync et sauvegardes.</li>
-                        <li>Sécurisation et exploitation : certificats SSL, UFW, Fail2ban, cron, README et procédures de reprise.</li>
-                    </ul>
-                    <div class="project-highlight-grid" aria-label="Axes du projet Soft Études">
-                        <div class="highlight-card">
-                            <strong>Développement web</strong>
-                            <span>Interface, modules de calcul, gestion des versions et amélioration progressive des outils.</span>
-                        </div>
-                        <div class="highlight-card">
-                            <strong>Hébergement &amp; Linux</strong>
-                            <span>Déploiement sur VPS Debian, Nginx HTTPS, service systemd, droits Unix et mises à jour par SSH/rsync.</span>
-                        </div>
-                        <div class="highlight-card">
-                            <strong>Sécurité &amp; exploitation</strong>
-                            <span>Certificats SSL, SSH par clé, UFW, Fail2ban, sauvegardes, cron, README et procédures de reprise.</span>
-                        </div>
+                    <div class="skill-category">
+                        <strong>Réseau</strong>
+                        <p>TCP/IP, VLAN, VPN, pfSense, routage.</p>
                     </div>
-                </article>
+                    <div class="skill-category">
+                        <strong>Exploitation</strong>
+                        <p>GLPI, Zabbix, sauvegardes, documentation.</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Web / DevOps</strong>
+                        <p>Nginx, systemd, Node.js, SSH, rsync, GitHub.</p>
+                    </div>
+                </div>
             </section>
 
             <section class="section" aria-labelledby="experience-title">
-                <h2 class="section-title" id="experience-title">Expérience professionnelle</h2>
+                <h2 class="section-title" id="experience-title">Expériences</h2>
                 <div class="timeline">
                     <article class="experience-item">
                         <div class="job-header">
@@ -2783,13 +2739,7 @@
                         </div>
                         <div class="job-company">STUDI et Autajon, Montélimar</div>
                         <div class="job-description">
-                            <ul>
-                                <li>Participation à l'audit de GPO utilisateurs : analyse de l'existant, repérage de paramètres sensibles et rédaction de pistes d'optimisation.</li>
-                                <li>Contribution à l'amélioration des stratégies retenues, avec vérification de cohérence et attention portée au durcissement sécurité.</li>
-                                <li>Participation à l'audit de configurations réseau : VLAN, switches HP Aruba, adressage et points de vigilance documentés.</li>
-                                <li>Préparation technique autour d'une refonte d'accès VPN utilisateurs : analyse du besoin, contraintes et éléments de procédure.</li>
-                                <li>Pratique encadrée de l'administration Windows : Active Directory, DNS, DHCP, comptes, droits, documentation et procédures.</li>
-                            </ul>
+                            Participation à l'audit des GPO utilisateurs : analyse de l'existant, identification des doublons, configurations obsolètes et pistes de durcissement. Documentation des constats, suivi des actions, vérification de configurations switch/VLAN et participation au cadrage d'une refonte VPN utilisateurs.
                         </div>
                     </article>
 
@@ -2800,12 +2750,7 @@
                         </div>
                         <div class="job-company">SNCF Réseau, Carcassonne</div>
                         <div class="job-description">
-                            <ul>
-                                <li>Réalisation d'interventions en environnement critique et réglementé, avec application stricte des procédures sécurité.</li>
-                                <li>Analyse d'incidents terrain, diagnostic méthodique et priorisation des actions sous contrainte opérationnelle.</li>
-                                <li>Production de comptes rendus techniques et traçabilité des interventions pour contribuer à la continuité de service.</li>
-                                <li>Coordination avec plusieurs intervenants dans un contexte exigeant en sécurité, conformité et rigueur documentaire.</li>
-                            </ul>
+                            Interventions en environnement critique et réglementé, diagnostic d'incidents, priorisation des actions et comptes rendus techniques. Expérience utile pour la rigueur, la traçabilité et la continuité de service.
                         </div>
                     </article>
 
@@ -2816,12 +2761,7 @@
                         </div>
                         <div class="job-company">Rectorats de Mayotte et Montpellier</div>
                         <div class="job-description">
-                            <ul>
-                                <li>Accompagnement d'établissements et de personnels dans la prise en main d'outils numériques et services en ligne.</li>
-                                <li>Diagnostic d'incidents courants, assistance aux utilisateurs et transmission claire des bonnes pratiques.</li>
-                                <li>Administration fonctionnelle de plateformes éducatives : accès, comptes, usages et suivi des demandes.</li>
-                                <li>Création de supports de formation et sensibilisation à la sécurité des usages et à la protection des données.</li>
-                            </ul>
+                            Support de proximité, accompagnement d'utilisateurs, administration fonctionnelle de plateformes éducatives, création de supports et sensibilisation aux bonnes pratiques numériques.
                         </div>
                     </article>
 
@@ -2832,10 +2772,7 @@
                         </div>
                         <div class="job-company">Rexel et VRP SCI, Villemandeur</div>
                         <div class="job-description">
-                            <ul>
-                                <li>Analyse du besoin client, conseil technique et proposition de solutions adaptées.</li>
-                                <li>Suivi terrain en autonomie, organisation des priorités et relation de service.</li>
-                            </ul>
+                            Analyse du besoin client, conseil technique, suivi terrain en autonomie et relation de service.
                         </div>
                     </article>
 
@@ -2846,10 +2783,7 @@
                         </div>
                         <div class="job-company">Guérin, Société Nouvelle Guérin et Bureau d'études Elyt, Villemandeur</div>
                         <div class="job-description">
-                            <ul>
-                                <li>Maintenance d'équipements techniques, interventions de dépannage et suivi des demandes terrain.</li>
-                                <li>Préparation de projets, coordination opérationnelle et production documentaire technique.</li>
-                            </ul>
+                            Maintenance d'équipements techniques, dépannage, préparation de projets et production documentaire.
                         </div>
                     </article>
                 </div>
@@ -2860,366 +2794,33 @@
                 <div class="achievement-grid">
                     <div class="achievement-card">
                         <strong>Audit GPO en entreprise</strong>
-                        <span>Participation à l'analyse de stratégies de groupe, identification de points d'optimisation et documentation des constats.</span>
+                        <span>Analyse de l'existant, repérage de doublons, paramètres obsolètes et pistes de durcissement.</span>
                     </div>
                     <div class="achievement-card">
-                        <strong>Développement de SoftÉtudes.fr</strong>
-                        <span>Création d'une plateforme web de calculs techniques, hébergée et administrée sur VPS Debian.</span>
+                        <strong><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">SoftEtudes.fr</a></strong>
+                        <span>Développement et exploitation d'une plateforme web métier de calculs techniques, déployée sur VPS Linux avec Nginx, HTTPS, reverse proxy, systemd, SSH/rsync et maintenance continue.</span>
                     </div>
                     <div class="achievement-card">
-                        <strong>Scripts et outils Python</strong>
-                        <span>Développement d'outils personnels pour automatiser des calculs, structurer des données ou accélérer des vérifications.</span>
+                        <strong>Administration VPS Linux</strong>
+                        <span>Configuration serveur, service applicatif, sauvegardes, accès SSH et documentation d'exploitation.</span>
                     </div>
                     <div class="achievement-card">
-                        <strong>Scripts PowerShell</strong>
-                        <span>Travaux pratiques autour de l'administration Windows, de la collecte d'informations et de l'automatisation simple.</span>
+                        <strong>Scripts PowerShell / Python</strong>
+                        <span>Automatisations simples, collecte d'informations, outils personnels et support à la documentation.</span>
                     </div>
                     <div class="achievement-card">
-                        <strong>Documentation technique</strong>
-                        <span>Rédaction de procédures, README, captures de validation et points de reprise pour faciliter la maintenance.</span>
-                    </div>
-                    <div class="achievement-card">
-                        <strong>Administration de switches HP Aruba</strong>
-                        <span>Participation à l'analyse de configurations réseau, VLAN, adressage et vérifications associées.</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" aria-labelledby="skills-detail-title">
-                <h2 class="section-title" id="skills-detail-title">Compétences détaillées</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <strong>Administration</strong>
-                        <ul>
-                            <li>Windows Server</li>
-                            <li>Active Directory</li>
-                            <li>GPO</li>
-                            <li>DNS</li>
-                            <li>DHCP</li>
-                            <li>RDS</li>
-                            <li>Comptes &amp; droits</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Réseaux</strong>
-                        <ul>
-                            <li>TCP/IP</li>
-                            <li>VLAN</li>
-                            <li>Switching</li>
-                            <li>VPN</li>
-                            <li>IPAM</li>
-                            <li>pfSense</li>
-                            <li>Diagnostic réseau</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Linux</strong>
-                        <ul>
-                            <li>Debian</li>
-                            <li>Ubuntu</li>
-                            <li>Bash</li>
-                            <li>Cron</li>
-                            <li>Nginx</li>
-                            <li>systemd</li>
-                            <li>SSH</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Scripting</strong>
-                        <ul>
-                            <li>PowerShell</li>
-                            <li>Python</li>
-                            <li>JavaScript</li>
-                            <li>Scripts serveur</li>
-                            <li>Automatisation simple</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Outils</strong>
-                        <ul>
-                            <li>Git</li>
-                            <li>GitHub</li>
-                            <li>GLPI</li>
-                            <li>Zabbix</li>
-                            <li>Notion</li>
-                            <li>Wiki.js</li>
-                            <li>Proxmox VE</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <strong>Sécurité &amp; documentation</strong>
-                        <ul>
-                            <li>UFW</li>
-                            <li>Fail2ban</li>
-                            <li>Certificats SSL</li>
-                            <li>Sauvegardes</li>
-                            <li>Procédures</li>
-                            <li>Comptes rendus</li>
-                        </ul>
+                        <strong>Switches HP Aruba / VLAN</strong>
+                        <span>Vérification de configurations switch, VLAN, adressage et points de vigilance réseau.</span>
                     </div>
                 </div>
             </section>
 
             <p class="print-online-note">
-                <strong>CV en ligne :</strong> portfolio technique, captures, projet SoftÉtudes.fr et dossier AIS accessibles via le QR code.
+                <strong>CV en ligne :</strong> liens, réalisations et projet SoftEtudes.fr accessibles depuis cette version.
             </p>
 
         </main>
     </article>
-
-    <section class="web-portfolio web-only" aria-labelledby="portfolio-title">
-        <div class="portfolio-shell">
-            <header class="portfolio-header">
-                <p class="intro-kicker">Portfolio technique</p>
-                <h2 class="portfolio-title" id="portfolio-title">Preuves concrètes d'administration systèmes, réseaux et sécurité</h2>
-                <p class="portfolio-lead">
-                    Projets issus du laboratoire personnel, des TP et DP TSSR/AIS et des missions en entreprise. Chaque réalisation met en avant le contexte, les choix techniques et la validation obtenue.
-                </p>
-            </header>
-
-            <section class="bridge-section" aria-labelledby="pfn-title">
-                <div>
-                    <p class="project-label">Activité PFN</p>
-                    <h3 id="pfn-title">Professeur formateur numérique et correspondant ENT</h3>
-                    <p>
-                        Missions officielles exercées entre 2015 et 2020 : accompagnement des établissements, support aux utilisateurs, administration fonctionnelle de services en ligne et sécurité des usages.
-                    </p>
-                </div>
-                <div class="bridge-grid" aria-label="Compétences issues des missions PFN">
-                    <div class="bridge-item">
-                        <strong>Déploiement &amp; support</strong>
-                        <span>Préparation, lancement et suivi de l'ENT ; assistance aux usagers et remontée des incidents.</span>
-                    </div>
-                    <div class="bridge-item">
-                        <strong>Administration fonctionnelle</strong>
-                        <span>Services en ligne, données, espaces web DANE, comptes, usages et fonctionnement des plateformes.</span>
-                    </div>
-                    <div class="bridge-item">
-                        <strong>Formation &amp; conduite du changement</strong>
-                        <span>Supports, formations, prise en main d'outils numériques et vulgarisation technique.</span>
-                    </div>
-                    <div class="bridge-item">
-                        <strong>Conseil &amp; sécurité des usages</strong>
-                        <span>Pilotage numérique, priorisation des besoins, sécurité et protection des données hébergées.</span>
-                    </div>
-                </div>
-            </section>
-
-            <div class="lab-summary" aria-label="Synthèse du laboratoire technique">
-                <article class="lab-panel">
-                    <h3>Laboratoire technique personnel d'administration systèmes &amp; réseaux</h3>
-                    <p>
-                        Infrastructure virtualisée orientée exploitation : Windows Server, Active Directory, pfSense, VPN, supervision, gestion de parc et documentation Wiki.js.
-                    </p>
-                    <div class="lab-stack" aria-label="Technologies utilisées dans le lab">
-                        <span>Proxmox VE</span>
-                        <span>VMware</span>
-                        <span>Windows Server 2022</span>
-                        <span>Active Directory</span>
-                        <span>GPO</span>
-                        <span>DNS / DHCP</span>
-                        <span>RDS</span>
-                        <span>pfSense</span>
-                        <span>OpenVPN</span>
-                        <span>VLAN</span>
-                        <span>GLPI</span>
-                        <span>Zabbix</span>
-                        <span>Wiki.js</span>
-                        <span>Cluster hyperviseurs</span>
-                    </div>
-                </article>
-
-                <aside class="lab-proof" aria-label="Points de preuve">
-                    <div class="proof-stat">
-                        <strong>Projets</strong>
-                        <span>7 projets documentés avec captures et procédures.</span>
-                    </div>
-                    <div class="proof-stat">
-                        <strong>Infra + sécurité</strong>
-                        <span>AD, GPO, VLAN, VPN, supervision, support et durcissement.</span>
-                    </div>
-                    <div class="proof-stat">
-                        <strong>Exploitation</strong>
-                        <span>Vision support N1/N2, diagnostic, alertes, comptes rendus et continuité de service.</span>
-                    </div>
-                </aside>
-            </div>
-
-            <section class="portfolio-subhead" aria-labelledby="technical-achievements-title">
-                <p class="intro-kicker">Réalisations techniques</p>
-                <h3 id="technical-achievements-title">Objectif, solution, résultat</h3>
-                <p>Les cartes ci-dessous résument les scénarios techniques avec les briques utilisées et la preuve de validation.</p>
-            </section>
-
-            <div class="portfolio-grid">
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/soft-etudes-note-calcul.jpg?v=20260704" alt="Interface softetudes.fr avec catalogue de modules et calculateur métier">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">Application métier / notes de calcul</p>
-                        <h3><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">softetudes.fr</a>, outil web de calculs techniques</h3>
-                        <p>
-                            Projet personnel de migration de feuilles Excel métier vers une application web CVC/plomberie, exploité en production sur VPS Debian avec Nginx HTTPS, API proxifiée, service systemd, sauvegardes et durcissement serveur.
-                        </p>
-                        <div class="project-tags">
-                            <span>JavaScript</span>
-                            <span>Node.js API</span>
-                            <span>Nginx / systemd</span>
-                            <span>SSH / rsync</span>
-                            <span>UFW / Fail2ban</span>
-                            <span>VPS</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> rendre des notes de calcul plus rapides, centralisées et réutilisables.</li>
-                            <li><strong>Solution :</strong> application web versionnée, Nginx, HTTPS, systemd, cron, scripts serveur, sécurisation VPS et catalogue enrichi progressivement.</li>
-                            <li><strong>Résultat :</strong> plateforme en ligne, versionnée, administrée à distance et enrichie module par module.</li>
-                        </ul>
-                        <a class="project-link" href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer" aria-label="Tester la démonstration en ligne softetudes.fr">
-                            Tester mon projet
-                        </a>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/rds-active-directory.jpg?v=20260525" alt="Vue d'ensemble d'un déploiement RDS Windows Server dans le laboratoire">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">Windows Server / AD / RDS</p>
-                        <h3>Infrastructure Active Directory et accès distant</h3>
-                        <div class="project-tags">
-                            <span>Windows Server</span>
-                            <span>Active Directory</span>
-                            <span>RDS</span>
-                            <span>Proxmox</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> fournir un accès distant à un serveur intégré au domaine.</li>
-                            <li><strong>Solution :</strong> VM Proxmox, rôles Windows Server et services RDS.</li>
-                            <li><strong>Résultat :</strong> connexion validée depuis un poste client et procédure documentée.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/openvpn-pfsense.jpg?v=20260525" alt="Connexion OpenVPN réussie vers un environnement pfSense">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">pfSense / VPN / accès distant</p>
-                        <h3>VPN OpenVPN et accès distant sécurisé</h3>
-                        <div class="project-tags">
-                            <span>pfSense</span>
-                            <span>OpenVPN</span>
-                            <span>Certificats</span>
-                            <span>RDP</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> sécuriser un accès distant utilisateur au réseau interne.</li>
-                            <li><strong>Solution :</strong> tunnel OpenVPN, profil client, utilisateur et certificats.</li>
-                            <li><strong>Résultat :</strong> connexion VPN et accès RDP validés.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/zabbix-supervision.jpg?v=20260525" alt="Interface Zabbix avec hôtes supervisés et agents actifs">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">Zabbix / supervision / alertes</p>
-                        <h3>Supervision d'infrastructure avec Zabbix</h3>
-                        <div class="project-tags">
-                            <span>Zabbix</span>
-                            <span>Agents</span>
-                            <span>Alertes</span>
-                            <span>Linux / Windows</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> détecter rapidement les indisponibilités de services.</li>
-                            <li><strong>Solution :</strong> serveur Zabbix, agents, hôtes, déclencheurs et graphiques.</li>
-                            <li><strong>Résultat :</strong> alertes visibles et résolution documentée.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/glpi-support.jpg?v=20260525" alt="Interface GLPI utilisée avec un compte technicien">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">GLPI / support / gestion de parc</p>
-                        <h3>GLPI pour support utilisateurs et inventaire</h3>
-                        <div class="project-tags">
-                            <span>GLPI</span>
-                            <span>Support</span>
-                            <span>Inventaire</span>
-                            <span>Tickets</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> structurer les demandes et l'inventaire.</li>
-                            <li><strong>Solution :</strong> installation GLPI, accès technicien et agent.</li>
-                            <li><strong>Résultat :</strong> environnement prêt pour suivi support et parc.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/proxmox-cluster-planning.jpg?v=20260525" alt="Planification d'un projet de cluster d'hyperviseurs Proxmox VE">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">Proxmox VE / virtualisation / cadrage</p>
-                        <h3>Planification d'une infrastructure virtualisée</h3>
-                        <div class="project-tags">
-                            <span>Proxmox VE</span>
-                            <span>Cluster</span>
-                            <span>Stockage</span>
-                            <span>Migration</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> cadrer une infrastructure virtualisée plus disponible.</li>
-                            <li><strong>Solution :</strong> planification inventaire, stockage, réseau, installation et migration.</li>
-                            <li><strong>Résultat :</strong> étapes de validation et reprise documentées.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="assets/portfolio/pfsense-dashboard.jpg?v=20260525" alt="Tableau de bord pfSense avec interfaces WAN et LAN visibles">
-                    <div class="portfolio-card-body">
-                        <p class="project-label">pfSense / pare-feu / réseau</p>
-                        <h3>Pare-feu pfSense et services réseau</h3>
-                        <div class="project-tags">
-                            <span>pfSense</span>
-                            <span>WAN / LAN</span>
-                            <span>Firewall</span>
-                            <span>Routage</span>
-                        </div>
-                        <ul class="proof-list">
-                            <li><strong>Objectif :</strong> poser une base réseau sécurisée pour le lab.</li>
-                            <li><strong>Solution :</strong> interfaces WAN/LAN, routage, filtrage et préparation VPN.</li>
-                            <li><strong>Résultat :</strong> connectivité validée et paramètres documentés.</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-
-            <section class="documentation-band" aria-labelledby="documentation-title">
-                <div>
-                    <p class="project-label">Documentation technique</p>
-                    <h3 id="documentation-title">Dossiers, procédures et livrables</h3>
-                    <p>
-                        Les travaux sont accompagnés de captures, procédures de validation, comptes rendus, dossiers professionnels TSSR/AIS et capitalisation dans un Wiki.js.
-                    </p>
-                    <a class="document-link" href="assets/docs/dossier-professionnel-ais-jean-marie-cardoso.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le dossier professionnel AIS au format PDF">
-                        <span class="document-badge">PDF</span>
-                        <span class="document-text">
-                            <strong>Exemple de réalisations AIS</strong>
-                            <span>Extrait documenté du parcours, 8,2 Mo</span>
-                        </span>
-                        <span class="document-action">Ouvrir</span>
-                    </a>
-                </div>
-                <ul class="documentation-list">
-                    <li>Dossier professionnel TSSR : administration systèmes, support, réseau et exploitation.</li>
-                    <li>Dossier professionnel AIS : infrastructure sécurisée, supervision, VPN, durcissement et continuité de service.</li>
-                    <li>Tenue d'un Wiki.js pour centraliser les procédures, scénarios de configuration, captures de validation et points de reprise.</li>
-                    <li>Procédures illustrées : installation GLPI, Zabbix, RDS, OpenVPN, cadrage Proxmox VE et tests de connectivité.</li>
-                    <li>Approche orientée preuves : captures avant/après, validation fonctionnelle et synthèse des actions réalisées.</li>
-                </ul>
-            </section>
-        </div>
-    </section>
     <script>
         (function () {
             var storageKey = "cv-theme";
