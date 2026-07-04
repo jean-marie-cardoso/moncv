@@ -648,6 +648,52 @@
             line-height: 1.45;
         }
 
+        .tech-details {
+            margin-top: 9px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .tech-details summary {
+            width: fit-content;
+            min-height: 30px;
+            margin-top: 8px;
+            padding: 6px 9px;
+            border: 1px solid rgba(15, 95, 122, 0.22);
+            background: var(--field);
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .tech-details summary:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .tech-detail-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 9px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tech-detail-list li {
+            min-height: 23px;
+            padding: 4px 7px;
+            border: 1px solid rgba(15, 95, 122, 0.16);
+            background: var(--field);
+            color: var(--muted);
+            font-size: 11.5px;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -912,8 +958,46 @@
             border-bottom: 1px solid var(--line);
         }
 
+        .portfolio-placeholder {
+            display: grid;
+            place-items: center;
+            min-height: 165px;
+            padding: 18px;
+            border-bottom: 1px solid var(--line);
+            background:
+                linear-gradient(135deg, rgba(15, 95, 122, 0.14), transparent 52%),
+                var(--soft-blue);
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            text-align: center;
+        }
+
         .portfolio-card-body {
             padding: 16px;
+        }
+
+        .portfolio-facts {
+            display: grid;
+            gap: 7px;
+            margin: 12px 0 0;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .portfolio-facts div {
+            display: grid;
+            gap: 2px;
+        }
+
+        .portfolio-facts dt {
+            color: var(--ink);
+            font-weight: 800;
+        }
+
+        .portfolio-facts dd {
+            margin: 0;
+            color: var(--muted);
         }
 
         .project-tags {
@@ -2346,8 +2430,8 @@
 
         @media print {
             body {
-                font-size: 8pt !important;
-                line-height: 1.14 !important;
+                font-size: 8.35pt !important;
+                line-height: 1.18 !important;
             }
 
             .page {
@@ -2401,8 +2485,8 @@
             }
 
             .intro {
-                gap: 4px !important;
-                margin-bottom: 5px !important;
+                gap: 5px !important;
+                margin-bottom: 7px !important;
             }
 
             .impact-grid {
@@ -2425,7 +2509,7 @@
             }
 
             .section {
-                margin-top: 9px !important;
+                margin-top: 11px !important;
             }
 
             .section-title {
@@ -2464,7 +2548,7 @@
             }
 
             .timeline {
-                gap: 5px !important;
+                gap: 7px !important;
             }
 
             .experience-item {
@@ -2490,13 +2574,13 @@
             }
 
             .achievement-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-                gap: 5px !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 6px !important;
             }
 
             .achievement-card {
                 min-height: auto !important;
-                padding: 6px 7px !important;
+                padding: 7px 8px !important;
             }
 
             .achievement-card strong {
@@ -2511,13 +2595,13 @@
             }
 
             .skills-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-                gap: 5px !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 6px !important;
             }
 
             .skill-category {
                 min-height: auto !important;
-                padding: 5px 6px !important;
+                padding: 6px 7px !important;
             }
 
             .skill-category strong {
@@ -2676,6 +2760,9 @@
                     <a class="download-link" href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">
                         SoftEtudes.fr
                     </a>
+                    <a class="download-link web-only" href="#portfolio-technique">
+                        Voir mes réalisations techniques
+                    </a>
                 </div>
                 <div class="theme-switch web-only" role="group" aria-label="Choix du thème">
                     <button class="theme-button" type="button" data-theme-value="auto" aria-pressed="true">Auto</button>
@@ -2741,6 +2828,22 @@
                         <div class="job-description">
                             Participation à l'audit des GPO utilisateurs : analyse de l'existant, identification des doublons, configurations obsolètes et pistes de durcissement. Documentation des constats, suivi des actions, vérification de configurations switch/VLAN et participation au cadrage d'une refonte VPN utilisateurs.
                         </div>
+                        <details class="tech-details web-only">
+                            <summary>En savoir plus</summary>
+                            <ul class="tech-detail-list">
+                                <li>Active Directory</li>
+                                <li>audit GPO</li>
+                                <li>doublons</li>
+                                <li>configurations obsolètes</li>
+                                <li>pistes de durcissement</li>
+                                <li>documentation</li>
+                                <li>suivi des actions</li>
+                                <li>switches HP Aruba</li>
+                                <li>VLAN</li>
+                                <li>VPN</li>
+                                <li>IPAM</li>
+                            </ul>
+                        </details>
                     </article>
 
                     <article class="experience-item">
@@ -2798,7 +2901,25 @@
                     </div>
                     <div class="achievement-card">
                         <strong><a href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">SoftEtudes.fr</a></strong>
-                        <span>Développement et exploitation d'une plateforme web métier de calculs techniques, déployée sur VPS Linux avec Nginx, HTTPS, reverse proxy, systemd, SSH/rsync et maintenance continue.</span>
+                        <span>Développement et exploitation d'une plateforme web technique dédiée aux outils de calcul.</span>
+                        <details class="tech-details web-only">
+                            <summary>En savoir plus</summary>
+                            <ul class="tech-detail-list">
+                                <li>VPS Linux</li>
+                                <li>Nginx</li>
+                                <li>HTTPS</li>
+                                <li>reverse proxy</li>
+                                <li>Node.js</li>
+                                <li>systemd</li>
+                                <li>SSH / rsync</li>
+                                <li>cron</li>
+                                <li>sauvegardes</li>
+                                <li>génération PDF</li>
+                                <li>maintenance continue</li>
+                                <li>sécurité</li>
+                                <li>amélioration UX</li>
+                            </ul>
+                        </details>
                     </div>
                     <div class="achievement-card">
                         <strong>Administration VPS Linux</strong>
@@ -2807,6 +2928,18 @@
                     <div class="achievement-card">
                         <strong>Scripts PowerShell / Python</strong>
                         <span>Automatisations simples, collecte d'informations, outils personnels et support à la documentation.</span>
+                        <details class="tech-details web-only">
+                            <summary>En savoir plus</summary>
+                            <ul class="tech-detail-list">
+                                <li>PowerShell</li>
+                                <li>Python</li>
+                                <li>automatisation Windows</li>
+                                <li>scripts d'exploitation</li>
+                                <li>documentation</li>
+                                <li>tests</li>
+                                <li>amélioration progressive</li>
+                            </ul>
+                        </details>
                     </div>
                     <div class="achievement-card">
                         <strong>Switches HP Aruba / VLAN</strong>
@@ -2821,6 +2954,208 @@
 
         </main>
     </article>
+
+    <section class="web-portfolio web-only" id="portfolio-technique" aria-labelledby="portfolio-title">
+        <div class="portfolio-shell">
+            <header class="portfolio-header">
+                <p class="intro-kicker">Portfolio technique</p>
+                <h2 class="portfolio-title" id="portfolio-title">Réalisations détaillées, en complément du CV</h2>
+                <p class="portfolio-lead">
+                    Cette partie donne plus de contexte sur quelques travaux réels. Le CV reste volontairement synthétique ; les détails sont ici pour préparer un échange technique.
+                </p>
+            </header>
+
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <img src="assets/portfolio/soft-etudes-note-calcul.jpg?v=20260704" alt="Aperçu de SoftEtudes.fr">
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Projet personnel</p>
+                        <h3>SoftEtudes.fr</h3>
+                        <p>Plateforme web métier dédiée aux outils de calcul techniques.</p>
+                        <dl class="portfolio-facts">
+                            <div>
+                                <dt>Contexte</dt>
+                                <dd>Projet personnel développé et maintenu dans la durée.</dd>
+                            </div>
+                            <div>
+                                <dt>Objectif</dt>
+                                <dd>Centraliser des outils de calcul et améliorer leur accès depuis le web.</dd>
+                            </div>
+                            <div>
+                                <dt>Actions</dt>
+                                <dd>Développement web, déploiement VPS Linux, HTTPS, reverse proxy, service systemd, scripts d'exploitation et maintenance continue.</dd>
+                            </div>
+                            <div>
+                                <dt>Technologies</dt>
+                                <dd>Linux, Nginx, Node.js, systemd, SSH, rsync, cron, génération PDF.</dd>
+                            </div>
+                            <div>
+                                <dt>Résultat</dt>
+                                <dd>Service en ligne, suivi et amélioré progressivement.</dd>
+                            </div>
+                        </dl>
+                        <a class="project-link" href="https://softetudes.fr/" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <img src="assets/portfolio/rds-active-directory.jpg" alt="Illustration d'un environnement Active Directory">
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Stage infrastructure</p>
+                        <h3>Audit GPO en entreprise</h3>
+                        <p>Participation à l'analyse de stratégies de groupe utilisateurs.</p>
+                        <dl class="portfolio-facts">
+                            <div>
+                                <dt>Contexte</dt>
+                                <dd>Stage AIS en environnement Active Directory existant.</dd>
+                            </div>
+                            <div>
+                                <dt>Objectif</dt>
+                                <dd>Comprendre l'existant, repérer les doublons et documenter les pistes d'amélioration.</dd>
+                            </div>
+                            <div>
+                                <dt>Actions</dt>
+                                <dd>Analyse des GPO, identification de configurations obsolètes, constats de sécurité et suivi documentaire.</dd>
+                            </div>
+                            <div>
+                                <dt>Technologies</dt>
+                                <dd>Windows Server, Active Directory, GPO, documentation technique.</dd>
+                            </div>
+                            <div>
+                                <dt>Résultat</dt>
+                                <dd>Constats formalisés et éléments utiles au suivi des actions.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="portfolio-placeholder">Administration VPS Linux</div>
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Exploitation</p>
+                        <h3>Administration VPS Linux</h3>
+                        <p>Exploitation du serveur utilisé pour publier SoftEtudes.fr.</p>
+                        <dl class="portfolio-facts">
+                            <div>
+                                <dt>Contexte</dt>
+                                <dd>Besoin d'héberger un projet web personnel de façon stable.</dd>
+                            </div>
+                            <div>
+                                <dt>Objectif</dt>
+                                <dd>Maintenir un service accessible, documenté et sauvegardé.</dd>
+                            </div>
+                            <div>
+                                <dt>Actions</dt>
+                                <dd>Configuration Linux, service applicatif, accès SSH, sauvegardes, tâches planifiées et procédures d'exploitation.</dd>
+                            </div>
+                            <div>
+                                <dt>Technologies</dt>
+                                <dd>Debian/Ubuntu, Nginx, systemd, SSH, rsync, cron.</dd>
+                            </div>
+                            <div>
+                                <dt>Résultat</dt>
+                                <dd>Administration régulière avec amélioration progressive des procédures.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="portfolio-placeholder">Switches HP Aruba / VLAN</div>
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Réseau</p>
+                        <h3>Switches HP Aruba / VLAN</h3>
+                        <p>Vérification de configurations réseau dans le cadre du stage.</p>
+                        <dl class="portfolio-facts">
+                            <div>
+                                <dt>Contexte</dt>
+                                <dd>Travaux d'observation et de vérification sur infrastructure réseau existante.</dd>
+                            </div>
+                            <div>
+                                <dt>Objectif</dt>
+                                <dd>Comprendre les VLAN, l'adressage et les points de vigilance associés.</dd>
+                            </div>
+                            <div>
+                                <dt>Actions</dt>
+                                <dd>Lecture de configurations, vérification VLAN, liens avec IPAM et documentation des constats.</dd>
+                            </div>
+                            <div>
+                                <dt>Technologies</dt>
+                                <dd>HP Aruba, VLAN, TCP/IP, IPAM.</dd>
+                            </div>
+                            <div>
+                                <dt>Résultat</dt>
+                                <dd>Meilleure compréhension de l'environnement réseau et des procédures internes.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="portfolio-placeholder">Scripts PowerShell / Python</div>
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Automatisation</p>
+                        <h3>Scripts PowerShell / Python</h3>
+                        <p>Création et adaptation de scripts pour automatiser des tâches système.</p>
+                        <dl class="portfolio-facts">
+                            <div>
+                                <dt>Contexte</dt>
+                                <dd>Travaux personnels et besoins ponctuels de collecte ou d'automatisation.</dd>
+                            </div>
+                            <div>
+                                <dt>Objectif</dt>
+                                <dd>Gagner du temps sur des tâches répétitives et fiabiliser certains relevés.</dd>
+                            </div>
+                            <div>
+                                <dt>Actions</dt>
+                                <dd>Scripts simples, tests, corrections progressives et documentation d'usage.</dd>
+                            </div>
+                            <div>
+                                <dt>Technologies</dt>
+                                <dd>PowerShell, Python, Windows, fichiers de sortie, documentation.</dd>
+                            </div>
+                            <div>
+                                <dt>Résultat</dt>
+                                <dd>Outils utilisables pour apprendre, vérifier et documenter.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="portfolio-placeholder">Documentation technique</div>
+                    <div class="portfolio-card-body">
+                        <p class="project-label">Méthode</p>
+                        <h3>Documentation technique</h3>
+                        <p>Rédaction de procédures, constats et notes utiles au suivi technique.</p>
+                        <dl class="portfolio-facts">
+                            <div>
+                                <dt>Contexte</dt>
+                                <dd>Documentation produite dans le cadre de la formation, du stage et des projets personnels.</dd>
+                            </div>
+                            <div>
+                                <dt>Objectif</dt>
+                                <dd>Garder une trace claire des configurations, vérifications et actions réalisées.</dd>
+                            </div>
+                            <div>
+                                <dt>Actions</dt>
+                                <dd>Procédures, captures, synthèses, points de vigilance et suivi des améliorations.</dd>
+                            </div>
+                            <div>
+                                <dt>Technologies</dt>
+                                <dd>Notion, GitHub, Markdown, documentation d'exploitation.</dd>
+                            </div>
+                            <div>
+                                <dt>Résultat</dt>
+                                <dd>Supports plus faciles à relire, transmettre et défendre en entretien.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <script>
         (function () {
             var storageKey = "cv-theme";
