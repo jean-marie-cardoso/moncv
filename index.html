@@ -1224,37 +1224,38 @@
             justify-content: space-between;
             gap: 12px;
             align-items: flex-start;
-            flex-wrap: wrap;
-            margin: 10px 0 12px;
+            flex-wrap: nowrap;
+            margin: 0 0 12px;
         }
 
         .theme-switch {
             display: inline-flex;
-            gap: 4px;
-            padding: 4px;
+            flex: 0 0 auto;
+            gap: 2px;
+            padding: 3px;
             border: 1px solid var(--line);
             background: var(--card);
-            border-radius: 8px;
+            border-radius: 7px;
         }
 
         .theme-button {
-            min-height: 32px;
-            padding: 7px 10px;
+            min-height: 24px;
+            padding: 5px 7px;
             border: 0;
             background: transparent;
             color: var(--muted);
             font: inherit;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 800;
             line-height: 1;
             cursor: pointer;
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
         .theme-button[aria-pressed="true"] {
             background: var(--teal);
             color: #ffffff;
-            box-shadow: 0 6px 14px var(--shadow-link);
+            box-shadow: 0 4px 10px var(--shadow-link);
         }
 
         .theme-button:hover {
@@ -1270,8 +1271,10 @@
         /* Container for multiple action buttons at the top of the resume */
         .action-buttons {
             display: flex;
+            flex: 1 1 auto;
             gap: 8px;
             flex-wrap: wrap;
+            min-width: 0;
             margin: 0;
         }
         /* Elements with this class are hidden in the web view and displayed only when printing */
