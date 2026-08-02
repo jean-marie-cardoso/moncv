@@ -162,6 +162,7 @@
             margin: 24px auto;
             display: grid;
             grid-template-columns: 295px 1fr;
+            align-items: start;
             background: var(--paper);
             border: 1px solid rgba(16, 42, 67, 0.08);
             border-radius: 8px;
@@ -170,12 +171,32 @@
         }
 
         .sidebar {
+            position: relative;
+            overflow: hidden;
             color: #f7fbff;
             background:
                 linear-gradient(160deg, rgba(15, 118, 110, 0.35), transparent 36%),
                 linear-gradient(20deg, rgba(208, 138, 29, 0.18), transparent 34%),
                 var(--panel);
+            border-bottom-right-radius: 8px;
             padding: 30px 24px;
+        }
+
+        .sidebar::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            height: 92px;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(16, 42, 67, 0), var(--paper));
+        }
+
+        .sidebar > * {
+            position: relative;
+            z-index: 1;
         }
 
         .identity {
@@ -383,8 +404,8 @@
 
         .intro {
             display: grid;
-            gap: 18px;
-            margin-bottom: 26px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
 
         .intro-kicker {
@@ -417,6 +438,7 @@
             margin: 0;
             color: var(--muted);
             font-size: 14px;
+            line-height: 1.58;
         }
 
         .impact-grid {
@@ -426,9 +448,10 @@
         }
 
         .impact-card {
-            min-height: 98px;
-            padding: 18px;
+            min-height: 82px;
+            padding: 14px 15px;
             border: 1px solid var(--line);
+            border-left: 3px solid var(--teal);
             background: var(--card);
         }
 
@@ -457,11 +480,13 @@
         }
 
         .impact-card:nth-child(2) {
-            background: var(--soft-teal);
+            border-left-color: var(--blue);
+            background: var(--card);
         }
 
         .impact-card:nth-child(3) {
-            background: var(--soft-gold);
+            border-left-color: var(--teal);
+            background: var(--card);
         }
 
         .impact-card strong {
@@ -816,8 +841,8 @@
         }
 
         .portfolio-header .intro-kicker {
-            font-size: 20px;
-            letter-spacing: 0.9px;
+            font-size: 13px;
+            letter-spacing: 1.3px;
         }
 
         .portfolio-title {
@@ -915,6 +940,7 @@
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 16px;
+            align-items: start;
         }
 
         .portfolio-subhead {
@@ -1032,8 +1058,9 @@
         .portfolio-compact {
             grid-column: 1 / -1;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
+            align-items: start;
         }
 
         .portfolio-compact .portfolio-card-body {
@@ -1371,7 +1398,34 @@
 
             .sidebar {
                 min-width: 0;
-                padding: 26px 22px;
+                padding: 22px;
+            }
+
+            .identity {
+                padding-bottom: 18px;
+            }
+
+            .identity-mark {
+                width: 42px;
+                height: 42px;
+                margin-bottom: 14px;
+            }
+
+            .sidebar-section {
+                margin-top: 18px;
+            }
+
+            .contact-list,
+            .compact-list {
+                gap: 8px;
+            }
+
+            .linkedin-profile {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .linkedin-badge-card {
+                padding: 9px;
             }
 
             .main {
@@ -1490,7 +1544,39 @@
 
             .sidebar,
             .main {
-                padding: 24px 18px;
+                padding: 20px 18px;
+            }
+
+            .linkedin-badge-action {
+                font-size: 11px;
+            }
+
+            .top-actions {
+                flex-wrap: wrap;
+            }
+
+            .action-buttons {
+                order: 2;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .action-buttons .download-link:first-child,
+            .action-buttons .download-link.web-only {
+                grid-column: 1 / -1;
+            }
+
+            .download-link {
+                width: 100%;
+                padding: 9px 10px;
+                font-size: 11px;
+                white-space: normal;
+            }
+
+            .theme-switch {
+                order: 1;
+                margin-left: auto;
             }
 
             .headline {
@@ -2906,23 +2992,23 @@
                 <h2 class="headline" id="profile-title">Administrateur Systèmes &amp; Réseaux Junior</h2>
                 <p class="headline-subtitle">Formation AIS - diplôme prévu fin 2026</p>
                 <p class="summary">
-                    Administrateur systèmes et réseaux junior, actuellement en formation AIS et en stage infrastructure. Je développe mes compétences autour de Windows Server, Linux, Active Directory, réseaux et sécurité, avec une approche basée sur l'analyse, la documentation et l'amélioration continue.
-                    J'apprécie particulièrement les environnements Windows/Linux, la résolution de problèmes, l'automatisation et les projets d'amélioration continue.
-                    En dehors de ma formation, je mène des projets personnels pour approfondir l'administration Linux, l'automatisation et le déploiement d'applications.
+                    Administrateur systèmes et réseaux junior, TSSR obtenu en janvier 2026 et actuellement en formation AIS avec stage infrastructure.
+                    Je développe mes compétences autour de Windows Server, Linux, Active Directory, réseaux et sécurité, avec une approche basée sur l'analyse, la vérification et la documentation.
+                    En parallèle, je mène des projets personnels pour progresser en administration Linux, automatisation et déploiement d'applications.
                 </p>
 
                 <div class="impact-grid" aria-label="Points forts">
                     <div class="impact-card">
                         <strong>Ce que je recherche</strong>
-                        <span>Premier poste d'administrateur systèmes et réseaux junior, support infrastructure N2 ou administrateur infrastructures sécurisées junior.</span>
+                        <span>Premier poste en administration systèmes et réseaux junior, support infrastructure N2 ou administration d'infrastructures sécurisées junior.</span>
                     </div>
                     <div class="impact-card">
                         <strong>Positionnement</strong>
-                        <span>Profil opérationnel junior, à l'aise avec l'analyse, les procédures et la montée en compétence.</span>
+                        <span>Profil junior habitué aux procédures, à l'analyse et à la restitution claire.</span>
                     </div>
                     <div class="impact-card">
                         <strong>Approche</strong>
-                        <span>Travail factuel : constats, vérifications, documentation et amélioration continue.</span>
+                        <span>Vérifier, documenter et proposer des améliorations réalistes.</span>
                     </div>
                 </div>
             </section>
@@ -3002,12 +3088,12 @@
                 <div class="timeline">
                     <article class="experience-item">
                         <div class="job-header">
-                            <h3 class="job-position">Formation AIS en cours et stage infrastructure systèmes &amp; réseaux</h3>
-                            <span class="job-dates">2026 - en cours</span>
+                            <h3 class="job-position">TSSR obtenu, AIS en cours et stage infrastructure systèmes &amp; réseaux</h3>
+                            <span class="job-dates">2025 - en cours</span>
                         </div>
                         <div class="job-company">STUDI et Autajon, Montélimar</div>
                         <div class="job-description">
-                            Participation à des chantiers infrastructure : revue GPO/Active Directory, documentation des constats, pistes de nettoyage et points de vigilance sécurité. Contribution au cadrage et aux tests Cloudflare One/ZTNA, poste Ubuntu pilote, outillage Ubuntu, GitLab ICT pour scripts PowerShell et structuration documentaire support.
+                            Titre TSSR obtenu en janvier 2026, puis poursuite en AIS. Stage infrastructure : revue GPO/Active Directory, documentation des constats, pistes de nettoyage et points de vigilance sécurité. Contribution au cadrage et aux tests Cloudflare One/ZTNA, poste Ubuntu pilote, outillage Ubuntu, GitLab ICT pour scripts PowerShell et structuration documentaire support.
                         </div>
                         <details class="tech-details web-only">
                             <summary>En savoir plus</summary>
@@ -3154,7 +3240,7 @@
         <div class="portfolio-shell">
             <header class="portfolio-header">
                 <p class="intro-kicker">Portfolio technique</p>
-                <h2 class="portfolio-title" id="portfolio-title">Réalisations techniques</h2>
+                <h2 class="portfolio-title" id="portfolio-title">Détails des réalisations</h2>
             </header>
 
             <div class="portfolio-grid">
@@ -3298,6 +3384,7 @@
                     </article>
 
                     <article class="portfolio-card">
+                        <img src="assets/portfolio/gitlab-ict-scripts.jpg" alt="Capture anonymisée d'un espace GitLab ICT pour scripts PowerShell">
                         <div class="portfolio-card-body">
                             <p class="project-label">Automatisation</p>
                             <h3>GitLab ICT / scripts PowerShell</h3>
